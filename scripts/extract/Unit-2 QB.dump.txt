@@ -1,0 +1,1039 @@
+Unit2_MCQ
+Q1. What is required for two functions in the same scope to be overloaded?
+Same name but different parameter lists
+Same name and same parameters but different return types
+Different names but the same parameters
+Same name but defined in different files only
+Q2. In public inheritance, what do the public members of the base class become in the derived class?
+private
+public
+protected
+inaccessible
+Q3. Which type of inheritance has a class derived from two or more base classes?
+Single
+Multilevel
+Hierarchical
+Multiple
+Q4. Where can a protected member of a base class be accessed?
+Within the base class and its derived classes
+Only within the base class
+From anywhere in the program
+Only from main()
+Q5. Which operator cannot be overloaded in C++?
++
+<<
+::
+[]
+Q6. Which keyword makes a base class member function eligible for dynamic binding?
+static
+virtual
+const
+inline
+Q7. What is method overriding?
+A derived class giving its own definition of a base class function with the same signature
+Defining two functions with the same name and different parameters
+Calling a base class constructor from main()
+Hiding all members of the base class
+Q8. Which statement about the this pointer is correct?
+It is a static member of every class
+It stores the address of the base class
+It can be used inside static member functions
+It is passed implicitly to every non-static member function
+Q9. In what order are constructors called when a derived class object is created?
+Derived class first, then base class
+Only the derived class constructor is called
+Base class first, then derived class
+In a random order
+Q10. A class becomes abstract in C++ when it contains at least one:
+private data member
+static function
+pure virtual function
+constructor
+Q11. What is a concrete class?
+A class with at least one pure virtual function
+A class that implements all its functions and can be instantiated
+A class that cannot have any objects
+A class that has only static members
+Q12. When is the function to be called decided in dynamic binding?
+At compile time
+At run time
+At link time
+During preprocessing
+Q13. What is the output of the following C++ code?
+int double char
+double double char
+int double int
+char int double
+Q14. Why should the destructor of a base class be declared virtual?
+To prevent the class from being inherited
+To make the destructor run faster
+To allow overloading of destructors
+So that deleting a derived object through a base pointer calls the derived destructor
+Q15. Which keyword is used to raise an exception in C++?
+try
+throw
+catch
+raise
+Q16. What is the output of the following C++ code?
+5 End Error
+Error
+5 0 Error
+5 Error
+Q17. What is the output of the following C++ code?
+DBbd
+BDbd
+DBdb
+BDdb
+Q18. What is the output of the following C++ code?
+CS
+CSc
+CcS
+cCS
+Q19. What is the output of the following C++ code?
+3 7
+1 2
+4 6
+7 4
+Q20. What is the output of the following C++ code?
+Dog
+Animal
+AnimalDog
+Compilation error
+Unit2_Debugging
+Q1. Problem Statement
+Professor Naveen teaches signals and needs a small tool for complex numbers. The program has a class Complex with a real part and an imaginary part. The operator + adds two complex numbers, and the operator * multiplies two complex numbers. The function display prints a complex number in the form (real, imaginary).
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Formulas used:
+(a + bi) + (c + di) = (a + c) + (b + d)i
+(a + bi) * (c + di) = (ac - bd) + (ad + bc)i
+Input Format 
+The first line of input consists of four space-separated integers a, b, c, and d representing the real and the imaginary parts of the first complex number, and the real and the imaginary parts of the second complex number.
+Output Format 
+The first line of output prints "Sum: " followed by the sum of the two complex numbers in the form (real, imaginary).
+The second line of output prints "Product: " followed by the product of the two complex numbers in the form (real, imaginary).
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+-100 ≤ a, b, c, d ≤ 100
+Sample Input Sample Output 
+3 2 1 4
+Sum: (4, 6)
+Product: (-5, 14)
+Sample Input Sample Output 
+2 -3 4 5
+Sum: (6, 2)
+Product: (23, -2)
+Hidden Test Case Input Output
+1 1 1 1
+Sum: (2, 2)
+Product: (0, 2)
+Weightage – 20 Input Output
+5 0 0 5
+Sum: (5, 5)
+Product: (0, 25)
+Weightage – 20 Input Output
+-4 7 3 -2
+Sum: (-1, 5)
+Product: (2, 29)
+Weightage – 30 Input Output
+10 -6 -8 9
+Sum: (2, 3)
+Product: (-26, 138)
+Weightage – 30 Sample Input Sample Output
+3 2 1 4
+Sum: (4, 6)
+Product: (-5, 14)
+Sample Input Sample Output
+2 -3 4 5
+Sum: (6, 2)
+Product: (23, -2)
+Solution
+Header
+#include <iostream>
+using namespace std;
+class Complex {
+    int real;
+    int imag;
+public:
+    Complex(int r, int i) {
+        real = r;
+        imag = i;
+    }
+    Complex operator+(Complex other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+    Complex operator*(Complex other) {
+        return Complex(real * other.real - imag * other.imag, real * other.imag + imag * other.real);
+    }
+    void display() {
+        cout << "(" << real << ", " << imag << ")" << endl;
+    }
+};
+Footer
+int main() {
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    Complex first(a, b);
+    Complex second(c, d);
+    Complex sum = first + second;
+    Complex product = first * second;
+    cout << "Sum: ";
+    sum.display();
+    cout << "Product: ";
+    product.display();
+    return 0;
+}
+Q2. Problem Statement
+Anand works in a mobile factory. The program has three classes in three levels: the class Device has a brand, the class Phone is derived from Device and adds the storage in GB, and the class SmartPhone is derived from Phone and adds the operating system. 
+The brand and the storage must be accessible inside the derived classes, but not outside the classes. Every constructor prints a message when an object is created, and every destructor prints a message when an object is destroyed. The function show of the class SmartPhone prints the brand, the storage, and the operating system.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of a string brand, an integer storage, and a string os separated by spaces, representing the brand, the storage in GB, and the operating system of the smartphone.
+Output Format 
+The first three lines of output print "Device Created: " followed by the brand, "Phone Created: " followed by the storage, and "SmartPhone Created: " followed by the operating system.
+The fourth line of output prints "Brand: " followed by the brand, ", Storage: " followed by the storage, and ", OS: " followed by the operating system.
+The last three lines of output print "SmartPhone Destroyed: " followed by the operating system, "Phone Destroyed: " followed by the storage, and "Device Destroyed: " followed by the brand.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of brand, os ≤ 20, and they contain no spaces.
+1 ≤ storage ≤ 2048
+Sample Input Sample Output 
+Oppo 32 ColorOS
+Device Created: Oppo
+Phone Created: 32
+SmartPhone Created: ColorOS
+Brand: Oppo, Storage: 32, OS: ColorOS
+SmartPhone Destroyed: ColorOS
+Phone Destroyed: 32
+Device Destroyed: Oppo
+Sample Input Sample Output 
+Vivo 16 FunTouch
+Device Created: Vivo
+Phone Created: 16
+SmartPhone Created: FunTouch
+Brand: Vivo, Storage: 16, OS: FunTouch
+Hidden Test Case Input Output
+Nokia 64 Android
+Device Created: Nokia
+Phone Created: 64
+SmartPhone Created: Android
+Brand: Nokia, Storage: 64, OS: Android
+SmartPhone Destroyed: Android
+Phone Destroyed: 64
+Device Destroyed: Nokia
+Weightage – 20 Input Output
+Sony 128 Windows
+Device Created: Sony
+Phone Created: 128
+SmartPhone Created: Windows
+Brand: Sony, Storage: 128, OS: Windows
+SmartPhone Destroyed: Windows
+Phone Destroyed: 128
+Device Destroyed: Sony
+Weightage – 20 Input Output
+Samsung 256 Tizen
+Device Created: Samsung
+Phone Created: 256
+SmartPhone Created: Tizen
+Brand: Samsung, Storage: 256, OS: Tizen
+SmartPhone Destroyed: Tizen
+Phone Destroyed: 256
+Device Destroyed: Samsung
+Weightage – 30 Input Output
+Apple 512 iOS
+Device Created: Apple
+Phone Created: 512
+SmartPhone Created: iOS
+Brand: Apple, Storage: 512, OS: iOS
+SmartPhone Destroyed: iOS
+Phone Destroyed: 512
+Device Destroyed: Apple
+Weightage – 30 Sample Input Sample Output
+Oppo 32 ColorOS
+Device Created: Oppo
+Phone Created: 32
+SmartPhone Created: ColorOS
+Brand: Oppo, Storage: 32, OS: ColorOS
+SmartPhone Destroyed: ColorOS
+Phone Destroyed: 32
+Device Destroyed: Oppo
+Sample Input Sample Output
+Vivo 16 FunTouch
+Device Created: Vivo
+Phone Created: 16
+SmartPhone Created: FunTouch
+Brand: Vivo, Storage: 16, OS: FunTouch
+SmartPhone Destroyed: FunTouch
+Phone Destroyed: 16
+Device Destroyed: Vivo
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+class Device {
+protected:
+    string brand;
+public:
+    Device(string b) {
+        brand = b;
+        cout << "Device Created: " << brand << endl;
+    }
+    ~Device() {
+        cout << "Device Destroyed: " << brand << endl;
+    }
+};
+class Phone : public Device {
+protected:
+    int storage;
+public:
+    Phone(string b, int s) : Device(b) {
+        storage = s;
+        cout << "Phone Created: " << storage << endl;
+    }
+    ~Phone() {
+        cout << "Phone Destroyed: " << storage << endl;
+    }
+};
+class SmartPhone : public Phone {
+    string os;
+public:
+    SmartPhone(string b, int s, string o) : Phone(b, s) {
+        os = o;
+        cout << "SmartPhone Created: " << os << endl;
+    }
+    void show() {
+        cout << "Brand: " << brand << ", Storage: " << storage << ", OS: " << os << endl;
+    }
+    ~SmartPhone() {
+        cout << "SmartPhone Destroyed: " << os << endl;
+    }
+};
+Footer
+int main() {
+    string brand, os;
+    int storage;
+    cin >> brand >> storage >> os;
+    SmartPhone s(brand, storage, os);
+    s.show();
+    return 0;
+}
+Q3. Problem Statement
+Kavitha is a shop owner who compares prices and quantities every day. The program has three functions with the same name larger. The first function takes two integers and returns the larger integer. The second function takes two doubles and returns the larger double. The third function takes three integers and returns the largest integer.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of three space-separated integers a, b, and c.
+The second line of input consists of two space-separated doubles x and y.
+Output Format 
+The first line of output prints "Larger of two integers: " followed by the larger of a and b.
+The second line of output prints "Larger of two doubles: " followed by the larger of x and y rounded to two decimal places.
+The third line of output prints "Largest of three integers: " followed by the largest of a, b, and c.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+-1000 ≤ a, b, c ≤ 1000
+-1000.00 ≤ x, y ≤ 1000.00
+Sample Input Sample Output 
+12 35 20
+4.5 9.25
+Larger of two integers: 35
+Larger of two doubles: 9.25
+Largest of three integers: 35
+Sample Input Sample Output 
+9 4 17
+6.75 6.5
+Larger of two integers: 9
+Larger of two doubles: 6.75
+Largest of three integers: 17
+Hidden Test Case Input Output
+7 3 5
+1.5 2.5
+Larger of two integers: 7
+Larger of two doubles: 2.50
+Largest of three integers: 7
+Weightage – 20 Input Output
+10 20 30
+8.0 3.5
+Larger of two integers: 20
+Larger of two doubles: 8.00
+Largest of three integers: 30
+Weightage – 20 Input Output
+-5 -9 -2
+-3.25 -7.5
+Larger of two integers: -5
+Larger of two doubles: -3.25
+Largest of three integers: -2
+Weightage – 30 Input Output
+100 250 175
+99.99 100.01
+Larger of two integers: 250
+Larger of two doubles: 100.01
+Largest of three integers: 250
+Weightage – 30 Sample Input Sample Output
+12 35 20
+4.5 9.25
+Larger of two integers: 35
+Larger of two doubles: 9.25
+Largest of three integers: 35
+Sample InputSample Output
+9 4 17
+6.75 6.5
+Larger of two integers: 9
+Larger of two doubles: 6.75
+Largest of three integers: 17
+Solution
+Header
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int larger(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+double larger(double a, double b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+int larger(int a, int b, int c) {
+    int m = a;
+    if (b > m) {
+        m = b;
+    }
+    if (c > m) {
+        m = c;
+    }
+    return m;
+}
+Footer
+int main() {
+    int a, b, c;
+    double x, y;
+    cin >> a >> b >> c;
+    cin >> x >> y;
+    cout << fixed << setprecision(2);
+    cout << "Larger of two integers: " << larger(a, b) << endl;
+    cout << "Larger of two doubles: " << larger(x, y) << endl;
+    cout << "Largest of three integers: " << larger(a, b, c) << endl;
+    return 0;
+}
+Q4. Problem Statement
+Mukesh manages the online booking of a cinema hall. The program has a class Cinema that keeps the number of seats available. The function book reduces the number of available seats by the number of seats requested. If the number of seats requested is more than the number of seats available, the function must not change the number of seats and must throw the string "Not enough seats" as an exception. A booking of exactly the number of seats available is allowed. The main function handles the exception and prints the message of the error.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of three space-separated integers total, r1, and r2 representing the total number of seats available, the number of seats requested in the first booking, and the number of seats requested in the second booking.
+Output Format 
+The first line of output prints "Booked " followed by r1 and " seats" if the first booking is successful, or "Error: Not enough seats" otherwise.
+The second line of output prints "Booked " followed by r2 and " seats" if the second booking is successful, or "Error: Not enough seats" otherwise.
+The third line of output prints "Seats Left: " followed by an integer representing the number of seats left.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ total ≤ 500
+1 ≤ r1, r2 ≤ 500
+Sample Input Sample Output 
+50 20 10
+Booked 20 seats
+Booked 10 seats
+Seats Left: 20
+Sample Input Sample Output 
+30 25 10
+Booked 25 seats
+Error: Not enough seats
+Seats Left: 5
+Hidden Test Case Input Output
+10 10 5
+Booked 10 seats
+Error: Not enough seats
+Seats Left: 0
+Weightage – 20 Input Output
+100 40 60
+Booked 40 seats
+Booked 60 seats
+Seats Left: 0
+Weightage – 20 Input Output
+8 9 3
+Error: Not enough seats
+Booked 3 seats
+Seats Left: 5
+Weightage – 30 Input Output
+45 30 20
+Booked 30 seats
+Error: Not enough seats
+Seats Left: 15
+Weightage - 30Sample Input Sample Output
+50 20 10
+Booked 20 seats
+Booked 10 seats
+Seats Left: 20
+Sample Input Sample Output
+30 25 10
+Booked 25 seats
+Error: Not enough seats
+Seats Left: 5
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+class Cinema {
+    int available;
+public:
+    Cinema(int a) {
+        available = a;
+    }
+    void book(int seats) {
+        if (seats > available) {
+            throw string("Not enough seats");
+        }
+        available = available - seats;
+    }
+    int getAvailable() {
+        return available;
+    }
+};
+Footer
+int main() {
+    int total, r1, r2;
+    cin >> total >> r1 >> r2;
+    Cinema c(total);
+    int requests[2] = {r1, r2};
+    for (int k = 0; k < 2; k++) {
+        try {
+            c.book(requests[k]);
+            cout << "Booked " << requests[k] << " seats" << endl;
+        } catch (string msg) {
+            cout << "Error: " << msg << endl;
+        }
+    }
+    cout << "Seats Left: " << c.getAvailable() << endl;
+    return 0;
+}
+Q5. Problem Statement
+Geetha prepares the salary statement of a company. The program has a base class Employee with a name and a base pay. Two classes are derived from it: Manager, which has a bonus and whose salary is the base pay plus the bonus, and Intern, whose salary is half of the base pay. Every class has its own version of the function salary. The statement is printed through pointers of the base class Employee, and for every employee the salary function of the actual object must be used.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of a string n1 and two doubles b1 and bonus separated by spaces, representing the name, the base pay, and the bonus of the manager.
+The second line of input consists of a string n2 and a double b2 separated by a space, representing the name and the base pay of the intern.
+Output Format 
+The first line of output prints the name of the manager, ": " and the salary of the manager rounded to two decimal places.
+The second line of output prints the name of the intern, ": " and the salary of the intern rounded to two decimal places.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of n1, n2 ≤ 20, and they contain no spaces.
+1000.00 ≤ b1, bonus, b2 ≤ 100000.00
+Sample Input Sample Output 
+Latha 45000.0 5000.0
+Omar 30000.0
+Latha: 50000.00
+Omar: 15000.00
+Sample Input Sample Output 
+Divya 52000.0 3000.0
+Isha 22000.0
+Divya: 55000.00
+Isha: 11000.00
+Hidden Test Case Input Output
+Arun 40000.0 5000.0
+Ravi 20000.0
+Arun: 45000.00
+Ravi: 10000.00
+Weightage – 20 Input Output
+Meena 55000.5 4500.0
+Kiran 18000.0
+Meena: 59500.50
+Kiran: 9000.00
+Weightage – 20 Input Output
+Priya 62000.0 8000.5
+Sneha 24000.0
+Priya: 70000.50
+Sneha: 12000.00
+Weightage – 30 Input Output
+Hari 38000.25 1999.75
+Jay 15000.5
+Hari: 40000.00
+Jay: 7500.25
+Weightage – 30 Sample Input Sample Output
+Latha 45000.0 5000.0
+Omar 30000.0
+Latha: 50000.00
+Omar: 15000.00
+Sample Input Sample Output
+Divya 52000.0 3000.0
+Isha 22000.0
+Divya: 55000.00
+Isha: 11000.00
+Solution
+Header
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+class Employee {
+protected:
+    string name;
+    double base;
+public:
+    Employee(string n, double b) {
+        name = n;
+        base = b;
+    }
+    string getName() {
+        return name;
+    }
+    virtual double salary() {
+        return base;
+    }
+};
+class Manager : public Employee {
+    double bonus;
+public:
+    Manager(string n, double b, double bo) : Employee(n, b) {
+        bonus = bo;
+    }
+    double salary() {
+        return base + bonus;
+    }
+};
+class Intern : public Employee {
+public:
+    Intern(string n, double b) : Employee(n, b) {
+    }
+    double salary() {
+        return base / 2;
+    }
+};
+Footer
+int main() {
+    string n1, n2;
+    double b1, bonus, b2;
+    cin >> n1 >> b1 >> bonus;
+    cin >> n2 >> b2;
+    Manager m(n1, b1, bonus);
+    Intern i(n2, b2);
+    Employee* list[2];
+    list[0] = &m;
+    list[1] = &i;
+    cout << fixed << setprecision(2);
+    for (int k = 0; k < 2; k++) {
+        cout << list[k]->getName() << ": " << list[k]->salary() << endl;
+    }
+    return 0;
+}
+Unit2_Coding
+Q1.
+Problem Statement
+Dr. Ramesh works in the accounts section of a university. A professor is both a teacher and a researcher. A teacher has a salary, and a researcher has a number of published research papers. The university pays a bonus for every published paper, and the total pay of a professor is the salary plus the bonus for all the papers.
+Write a program that defines a class Teacher with a protected salary, a class Researcher with a protected number of papers, and a class Professor that is derived from both of them. Read the details of a professor, and print the salary, the number of papers, and the total pay.
+Formula used: Total Pay = Salary + (Number of papers * Bonus per paper)
+Input Format 
+The first line of input consists of a double salary, an integer papers, and a double bonus separated by spaces, representing the salary of the professor, the number of published papers, and the bonus paid for every paper.
+Output Format 
+The first line of output prints "Salary: " followed by a double value representing the salary rounded to two decimal places.
+The second line of output prints "Papers: " followed by an integer representing the number of papers.
+The third line of output prints "Total Pay: " followed by a double value representing the total pay rounded to two decimal places.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+10000.00 ≤ salary ≤ 500000.00
+0 ≤ papers ≤ 100
+0.00 ≤ bonus ≤ 10000.00
+Sample Input Sample Output 
+40000.0 5 2000.0
+Salary: 40000.00
+Papers: 5
+Total Pay: 50000.00
+Sample Input Sample Output 
+35000.0 3 1500.0
+Salary: 35000.00
+Papers: 3
+Total Pay: 39500.00
+Hidden Test CaseInputOutput
+30000.0 0 1000.0
+Salary: 30000.00
+Papers: 0
+Total Pay: 30000.00
+Weightage - 20InputOutput
+45000.5 4 1500.25
+Salary: 45000.50
+Papers: 4
+Total Pay: 51001.50
+Weightage - 20InputOutput
+60000.0 10 2500.0
+Salary: 60000.00
+Papers: 10
+Total Pay: 85000.00
+Weightage - 30InputOutput
+52500.75 7 1200.5
+Salary: 52500.75
+Papers: 7
+Total Pay: 60904.25
+Weightage - 30Sample InputSample Output
+40000.0 5 2000.0
+Salary: 40000.00
+Papers: 5
+Total Pay: 50000.00
+Sample InputSample Output
+35000.0 3 1500.0
+Salary: 35000.00
+Papers: 3
+Total Pay: 39500.00
+Solution
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Teacher {
+protected:
+    double salary;
+public:
+    void setSalary(double s) {
+        salary = s;
+    }
+};
+class Researcher {
+protected:
+    int papers;
+public:
+    void setPapers(int p) {
+        papers = p;
+    }
+};
+class Professor : public Teacher, public Researcher {
+public:
+    double totalPay(double bonusPerPaper) {
+        return salary + papers * bonusPerPaper;
+    }
+    void show(double bonusPerPaper) {
+        cout << "Salary: " << salary << endl;
+        cout << "Papers: " << papers << endl;
+        cout << "Total Pay: " << totalPay(bonusPerPaper) << endl;
+    }
+};
+int main() {
+    double salary, bonus;
+    int papers;
+    cin >> salary >> papers >> bonus;
+    cout << fixed << setprecision(2);
+    Professor p;
+    p.setSalary(salary);
+    p.setPapers(papers);
+    p.show(bonus);
+    return 0;
+}
+Q2. Problem Statement
+Vasanth is a data entry operator who prepares a division report from pairs of numbers. For every pair, he divides the first number by the second number and records the whole-number quotient. A division by zero is not possible, so a pair with a zero divisor must not stop the report. For such a pair, an error must be recorded, and the report must continue with the next pair.
+Write a program that reads the pairs of numbers, throws an exception when the divisor is zero, handles the exception, and prints the report line for every pair.
+Input Format 
+The first line of input consists of an integer n representing the number of pairs.
+The second line of input consists of 2n space-separated integers, where every two consecutive integers a and b represent the number to be divided and the divisor of a pair.
+Output Format 
+The output contains n lines.
+For a pair with a non-zero divisor, the line prints a, " / ", b, " = " and the whole-number quotient.
+For a pair with a zero divisor, the line prints a, " / ", b, " : Error: Division by zero".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 20
+0 ≤ a, b ≤ 10000
+Sample Input Sample Output 
+3
+100 7 5 0 0 3
+100 / 7 = 14
+5 / 0 : Error: Division by zero
+0 / 3 = 0
+Sample Input Sample Output 
+2
+7 0 0 0
+7 / 0 : Error: Division by zero
+0 / 0 : Error: Division by zero
+Hidden Test Case Input Output
+1
+10 2
+10 / 2 = 5
+Weightage – 20 Input Output
+2
+9 0 7 7
+9 / 0 : Error: Division by zero
+7 / 7 = 1
+Weightage – 20 Input Output
+4
+81 9 6 4 12 0 50 5
+81 / 9 = 9
+6 / 4 = 1
+12 / 0 : Error: Division by zero
+50 / 5 = 10
+Weightage – 30 Input Output
+3
+20 4 15 0 9 2
+20 / 4 = 5
+15 / 0 : Error: Division by zero
+9 / 2 = 4
+Weightage - 30Sample Input Sample Output
+3
+100 7 5 0 0 3
+100 / 7 = 14
+5 / 0 : Error: Division by zero
+0 / 3 = 0
+Sample Input Sample Output
+2
+7 0 0 0
+7 / 0 : Error: Division by zero
+0 / 0 : Error: Division by zero
+Solution
+#include <iostream>
+using namespace std;
+int divide(int a, int b) {
+    if (b == 0) {
+        throw 0;
+    }
+    return a / b;
+}
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int a, b;
+        cin >> a >> b;
+        try {
+            int q = divide(a, b);
+            cout << a << " / " << b << " = " << q << endl;
+        } catch (int code) {
+            cout << a << " / " << b << " : Error: Division by zero" << endl;
+        }
+    }
+    return 0;
+}
+Q3.Problem Statement
+Sundar operates the scoreboard of a school quiz. The score starts from a given value, and then he enters a series of commands. A command '+' adds 1 point to the score, and a command '-' removes 1 point from the score, but the score can never become less than 0, so a '-' command is ignored when the score is 0. 
+The scoreboard also remembers the highest score that was reached, which includes the starting score.
+Write a program that defines a class Score and overloads the prefix operators ++ and -- for it. Both the operators return the same object using the this pointer. Apply all the commands in the given order, and print the final score and the highest score.
+Input Format 
+The first line of input consists of an integer start representing the starting score.
+The second line of input consists of a string commands representing the series of commands, made of the characters '+' and '-' only.
+Output Format 
+The first line of output prints "Final Score: " followed by an integer representing the final score.
+The second line of output prints "Highest Score: " followed by an integer representing the highest score reached.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+0 ≤ start ≤ 1000
+1 ≤ length of commands ≤ 100
+Sample Input Sample Output 
+5
+++-+--
+Final Score: 5
+Highest Score: 7
+Sample Input Sample Output 
+0
+--+
+Final Score: 1
+Highest Score: 1
+Hidden Test Case Input Output
+3
++
+Final Score: 4
+Highest Score: 4
+Weightage – 20 Input Output
+2
+---
+Final Score: 0
+Highest Score: 2
+Weightage – 20 Input Output
+10
++++---++--+-
+Final Score: 10
+Highest Score: 13
+Weightage – 30 Input Output
+0
++++++-----------
+Final Score: 0
+Highest Score: 5
+Weightage – 30 Sample Input Sample Output
+5
+++-+--
+Final Score: 5
+Highest Score: 7
+Sample Input Sample Output
+0
+--+
+Final Score: 1
+Highest Score: 1
+Solution
+#include <iostream>
+#include <string>
+using namespace std;
+class Score {
+    int value;
+    int highest;
+public:
+    Score(int start) {
+        value = start;
+        highest = start;
+    }
+    Score& operator++() {
+        value = value + 1;
+        if (value > highest) {
+            highest = value;
+        }
+        return *this;
+    }
+    Score& operator--() {
+        if (value > 0) {
+            value = value - 1;
+        }
+        return *this;
+    }
+    int getValue() {
+        return value;
+    }
+    int getHighest() {
+        return highest;
+    }
+};
+int main() {
+    int start;
+    string commands;
+    cin >> start >> commands;
+    Score s(start);
+    for (int i = 0; i < commands.length(); i++) {
+        if (commands[i] == '+') {
+            ++s;
+        } else {
+            --s;
+        }
+    }
+    cout << "Final Score: " << s.getValue() << endl;
+    cout << "Highest Score: " << s.getHighest() << endl;
+    return 0;
+}
+Q4. Problem Statement
+Jayanthi works for an online shop that accepts payments in two ways: by card and by UPI. The gateway charges a fee for every payment. The fee for a card payment is 2.0 percent of the amount, and the fee for a UPI payment is 0.5 percent of the amount.
+Write a program that defines an abstract class Payment that cannot be used to create objects directly, with a function to calculate the fee, a function to print the name of the method, and a destructor. Define two concrete classes CardPayment and UpiPayment that are derived from it. 
+Create the payment object for the method chosen, using a pointer of the base class, and delete the object through the same pointer. When the object is deleted, the destructor of the derived class must run first, and then the destructor of the base class. The destructor of the class CardPayment prints "Card Closed", the destructor of the class UpiPayment prints "UPI Closed", and the destructor of the class Payment prints "Payment Closed".
+Formulas used:
+Fee = Amount * Rate / 100
+Total = Amount + Fee
+Input Format 
+The first line of input consists of an integer choice and a double amount separated by a space, representing the payment method (1 for card, 2 for UPI) and the amount of the payment.
+Output Format 
+The first line of output prints "Method: Card" or "Method: UPI".
+The second line of output prints "Fee: " followed by a double value representing the fee rounded to two decimal places.
+The third line of output prints "Total: " followed by a double value representing the total amount rounded to two decimal places.
+The fourth and the fifth lines of output print the messages of the destructors, first of the derived class, and then of the base class.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ choice ≤ 2
+100.00 ≤ amount ≤ 100000.00
+Sample Input Sample Output 
+1 1000.0
+Method: Card
+Fee: 20.00
+Total: 1020.00
+Card Closed
+Payment Closed
+Sample Input Sample Output 
+2 2500.0
+Method: UPI
+Fee: 12.50
+Total: 2512.50
+UPI Closed
+Hidden Test Case Input Output
+1 500.0
+Method: Card
+Fee: 10.00
+Total: 510.00
+Card Closed
+Payment Closed
+Weightage – 20 Input Output
+2 800.0
+Method: UPI
+Fee: 4.00
+Total: 804.00
+UPI Closed
+Payment Closed
+Weightage – 20 Input Output
+1 1250.5
+Method: Card
+Fee: 25.01
+Total: 1275.51
+Card Closed
+Payment Closed
+Weightage – 30 Input Output
+2 3750.0
+Method: UPI
+Fee: 18.75
+Total: 3768.75
+UPI Closed
+Payment Closed
+Weightage - 30Sample Input Sample Output
+1 1000.0
+Method: Card
+Fee: 20.00
+Total: 1020.00
+Card Closed
+Payment Closed
+Sample Input Sample Output
+2 2500.0
+Method: UPI
+Fee: 12.50
+Total: 2512.50
+UPI Closed
+Payment Closed
+Solution
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Payment {
+public:
+    virtual double fee(double amount) = 0;
+    virtual void name() = 0;
+    virtual ~Payment() {
+        cout << "Payment Closed" << endl;
+    }
+};
+class CardPayment : public Payment {
+public:
+    double fee(double amount) {
+        return amount * 2.0 / 100;
+    }
+    void name() {
+        cout << "Method: Card" << endl;
+    }
+    ~CardPayment() {
+        cout << "Card Closed" << endl;
+    }
+};
+class UpiPayment : public Payment {
+public:
+    double fee(double amount) {
+        return amount * 0.5 / 100;
+    }
+    void name() {
+        cout << "Method: UPI" << endl;
+    }
+    ~UpiPayment() {
+        cout << "UPI Closed" << endl;
+    }
+};
+int main() {
+    int choice;
+    double amount;
+    cin >> choice >> amount;
+    Payment* p;
+    if (choice == 1) {
+        p = new CardPayment();
+    } else {
+        p = new UpiPayment();
+    }
+    cout << fixed << setprecision(2);
+    p->name();
+    cout << "Fee: " << p->fee(amount) << endl;
+    cout << "Total: " << amount + p->fee(amount) << endl;
+    delete p;
+    return 0;
+}

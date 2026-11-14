@@ -1,0 +1,1129 @@
+                                                                             UNIT III
+MCQ
+Q1.
+What does each node of a singly linked list contain?
+Data and a pointer to the next node
+Data and pointers to the previous and next nodes
+Only data
+Only a pointer to the head
+Q2.
+Which order does a queue follow for insertion and removal?
+FIFO
+LIFO
+Random order
+Sorted order
+Q3.
+Which extra pointer does a node of a doubly linked list have compared with a singly linked list node?
+A pointer to the head
+A pointer to the middle node
+A pointer to the previous node
+A pointer to the data type
+Q4.
+In a circular singly linked list, where does the next pointer of the last node point?
+NULL
+The previous node
+The middle node
+The first node
+Q5.
+What is the time complexity of inserting a node at the beginning of a singly linked list when the head pointer is available?
+O(n)
+O(1)
+O(log n)
+O(n²)
+Q6.
+In a linked list implementation of a queue, where is a new element inserted?
+At the front
+At the rear
+In the middle
+At a position chosen by its value
+Q7.
+Which of the following is an application of a queue?
+CPU scheduling
+Reversing a string
+Evaluating postfix expressions
+Converting infix to postfix
+Q8.
+In a priority queue, which element is removed first?
+The oldest element
+The newest element
+The element in the middle
+The element with the highest priority
+Q9.
+Which stack operation adds an element to the top of the stack?
+pop
+push
+peek
+enqueue
+Q10.
+Which problem of a simple array-based queue is solved by a circular queue?
+Stack overflow
+Slow searching
+Wasted space at the front after dequeues
+Duplicate elements
+Q11.
+What is the postfix form of the infix expression A * B + C?
+AB*C+
+ABC*+
+AB+C*
+*AB+C
+Q12.
+While evaluating a postfix expression with a stack, what is done when an operator is encountered?
+It is pushed onto the stack
+It is ignored
+It is added to the output string
+Two operands are popped, the operation is applied and the result is pushed
+Q13.
+In infix to postfix conversion, what is done when a closing parenthesis is encountered?
+The parenthesis is pushed onto the stack
+Operators are popped to the output until the matching opening parenthesis is reached
+All operands are popped from the stack
+The conversion stops immediately
+Q14.
+What is the output of the following C++ code?
+[[IMAGE IN PARAGRAPH]]
+30
+50
+60
+20
+Q15.
+In a singly linked list implementation of a stack, where should push and pop take place to get O(1) time?
+At the end of the list with no tail pointer
+In the middle of the list
+At the head of the list
+At a node chosen by value
+Q16.
+What is the output of the following C++ code, which evaluates the postfix expression 2 3 4 * + ?
+[[IMAGE IN PARAGRAPH]]
+20
+24
+14
+9
+Q17.
+What is the output of the following C++ code?
+[[IMAGE IN PARAGRAPH]]
+2 3 1 3
+2 3 1 2
+1 2 3 3
+2 3 3
+Q18.
+What is the output of the following C++ code, which finds the highest priority element and its position in an array-based priority queue?
+[[IMAGE IN PARAGRAPH]]
+30 0
+10 1
+40 4
+50 2
+Q19.
+What is the output of the following C++ code?
+[[IMAGE IN PARAGRAPH]]
+1 2 3
+3 1
+2 3 1
+3 2 1
+Q20.
+What is the output of the following C++ code?
+1 2 3
+2 3 4
+4 2 3
+2 3 1
+DEBUGGING
+ Q1.
+Problem Statement
+Anitha stores the song numbers of her playlist in a singly linked list. The program has three functions: insertEnd adds a new song at the end of the list, reverseList reverses the order of the songs in the list by changing the links between the nodes and returns the new first node, and display prints the song numbers of the list from the first node to the last node, separated by single spaces, without any extra space at the end.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of songs.
+The second line of input consists of n space-separated integers representing the song numbers in the order in which they are added to the list.
+Output Format 
+The first line of output prints "Original: " followed by the song numbers of the list in the original order, separated by spaces.
+The second line of output prints "Reversed: " followed by the song numbers of the list after reversing it, separated by spaces.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+1 ≤ song number ≤ 10000
+Sample Input Sample Output 
+4
+3 1 4 2
+Original: 3 1 4 2
+Reversed: 2 4 1 3
+Sample Input Sample Output 
+2
+9 6
+Original: 9 6
+Reversed: 6 9
+Time Limit: - ms Memory Limit: - kb Code Size: - kb
+SOLUTION
+Hidden Test CaseInputOutput
+1
+7
+Original: 7
+Reversed: 7
+Weightage - 20InputOutput
+3
+5 10 15
+Original: 5 10 15
+Reversed: 15 10 5
+Weightage - 20InputOutput
+5
+4 8 15 16 23
+Original: 4 8 15 16 23
+Reversed: 23 16 15 8 4
+Weightage - 30InputOutput
+6
+12 7 33 2 91 40
+Original: 12 7 33 2 91 40
+Reversed: 40 91 2 33 7 12
+Weightage - 30Sample InputSample Output
+4
+3 1 4 2
+Original: 3 1 4 2
+Reversed: 2 4 1 3
+Sample InputSample Output
+2
+9 6
+Original: 9 6
+Reversed: 6 9
+Solution
+Header
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* next;
+};
+Node* insertEnd(Node* head, int value) {
+    Node* newNode = new Node;
+    newNode->data = value;
+    newNode->next = NULL;
+    if (head == NULL) {
+        return newNode;
+    }
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    return head;
+}
+Node* reverseList(Node* head) {
+    Node* prev = NULL;
+    Node* curr = head;
+    while (curr != NULL) {
+        Node* nextNode = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = nextNode;
+    }
+    return prev;
+}
+void display(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp->data;
+        if (temp->next != NULL) {
+            cout << " ";
+        }
+        temp = temp->next;
+    }
+    cout << endl;
+}
+Footer
+int main() {
+    int n;
+    cin >> n;
+    Node* head = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        head = insertEnd(head, value);
+    }
+    cout << "Original: ";
+    display(head);
+    head = reverseList(head);
+    cout << "Reversed: ";
+    display(head);
+    return 0;
+}
+Q2.
+Problem Statement
+Dhanush designs the buffer of a printer, which can hold only a fixed number of print jobs. The buffer is a circular queue implemented with an array, so the space freed at the front of the array is reused by the new jobs added at the rear. 
+The function process takes a type and a value. When the type is 1, it adds the job number given in value at the rear, and prints "Enqueued " followed by the job number, or prints "Queue Full" if the buffer has no free space. When the type is 2, it removes the job at the front, and prints "Dequeued " followed by the job number, or prints "Queue Empty" if the buffer has no job. The function show prints the jobs in the buffer from the front to the rear.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers c and n representing the capacity of the buffer and the number of operations.
+Each of the next n lines consists of two space-separated integers type and value representing the type of the operation (1 for adding a job, 2 for removing a job) and the job number. For the type 2, the value is 0 and it is ignored.
+Output Format 
+The first n lines of output print the message of every operation, in the order of the operations.
+The last line of output prints "Queue:" followed by the job numbers in the buffer from the front to the rear, each preceded by a space, or prints "Queue: Empty" if the buffer has no job.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ c ≤ 10
+1 ≤ n ≤ 30
+type is 1 or 2
+1 ≤ value ≤ 1000 for the type 1
+Sample Input Sample Output 
+3 5
+1 8
+1 9
+1 7
+1 6
+2 0
+Enqueued 8
+Enqueued 9
+Enqueued 7
+Queue Full
+Dequeued 8
+Queue: 9 7
+Sample Input Sample Output 
+2 4
+1 4
+2 0
+1 2
+1 3
+Enqueued 4
+Dequeued 4
+Enqueued 2
+Enqueued 3
+Queue: 2 3
+Time Limit: - ms Memory Limit: - kb Code Size: - kb
+SOLUTION
+Hidden Test CaseInputOutput
+3 4
+1 10
+1 20
+2 0
+1 30
+Enqueued 10
+Enqueued 20
+Dequeued 10
+Enqueued 30
+Queue: 20 30
+Weightage - 20InputOutput
+2 3
+2 0
+1 5
+2 0
+Queue Empty
+Enqueued 5
+Dequeued 5
+Queue: Empty
+Weightage - 20InputOutput
+3 8
+1 1
+1 2
+1 3
+1 4
+2 0
+1 5
+1 6
+2 0
+Enqueued 1
+Enqueued 2
+Enqueued 3
+Queue Full
+Dequeued 1
+Enqueued 5
+Queue Full
+Dequeued 2
+Queue: 3 5
+Weightage - 30InputOutput
+4 10
+1 11
+1 22
+1 33
+2 0
+2 0
+1 44
+1 55
+1 66
+1 77
+2 0
+Enqueued 11
+Enqueued 22
+Enqueued 33
+Dequeued 11
+Dequeued 22
+Enqueued 44
+Enqueued 55
+Enqueued 66
+Queue Full
+Dequeued 33
+Queue: 44 55 66
+Weightage - 30Sample InputSample Output
+3 5
+1 8
+1 9
+1 7
+1 6
+2 0
+Enqueued 8
+Enqueued 9
+Enqueued 7
+Queue Full
+Dequeued 8
+Queue: 9 7
+Sample InputSample Output
+2 4
+1 4
+2 0
+1 2
+1 3
+Enqueued 4
+Dequeued 4
+Enqueued 2
+Enqueued 3
+Queue: 2 3
+Solution
+Header
+#include <iostream>
+using namespace std;
+class CircularQueue {
+    int arr[100];
+    int capacity;
+    int front;
+    int rear;
+    int count;
+public:
+    CircularQueue(int c) {
+        capacity = c;
+        front = 0;
+        rear = -1;
+        count = 0;
+    }
+    void process(int type, int value) {
+        if (type == 1) {
+            if (count == capacity) {
+                cout << "Queue Full" << endl;
+                return;
+            }
+            rear = (rear + 1) % capacity;
+            arr[rear] = value;
+            count = count + 1;
+            cout << "Enqueued " << value << endl;
+        } else {
+            if (count == 0) {
+                cout << "Queue Empty" << endl;
+                return;
+            }
+            cout << "Dequeued " << arr[front] << endl;
+            front = (front + 1) % capacity;
+            count = count - 1;
+        }
+    }
+    void show() {
+        if (count == 0) {
+            cout << "Queue: Empty" << endl;
+            return;
+        }
+        cout << "Queue:";
+        for (int i = 0; i < count; i++) {
+            cout << " " << arr[(front + i) % capacity];
+        }
+        cout << endl;
+    }
+};
+Footer
+int main() {
+    int c, n;
+    cin >> c >> n;
+    CircularQueue q(c);
+    for (int i = 0; i < n; i++) {
+        int type, value;
+        cin >> type >> value;
+        q.process(type, value);
+    }
+    q.show();
+    return 0;
+}
+Q3.
+Problem Statement
+Chitra organises a game in which players sit around a round table. The player numbers are stored in a circular linked list, where the last node points back to the first node. The function insertEnd adds a new player after the last player, and keeps the list circular. 
+The function valueAfterSteps starts from the first player, moves forward the given number of steps around the table, and returns the player number reached. The number of steps can be larger than the number of players, so the walk can go around the table more than once. Moving 0 steps returns the first player.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of players.
+The second line of input consists of n space-separated integers representing the player numbers in the order in which they sit.
+The third line of input consists of an integer steps representing the number of steps to move from the first player.
+Output Format 
+The first line of output prints "Value After Steps: " followed by an integer representing the player number reached.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+1 ≤ player number ≤ 10000
+0 ≤ steps ≤ 200
+Sample Input Sample Output 
+4
+3 6 9 12
+5
+Value After Steps: 6
+Sample Input Sample Output 
+6
+2 4 6 8 10 12
+9
+Value After Steps: 8
+Time Limit: - ms Memory Limit: - kb Code Size: - kb
+SOLUTION
+Hidden Test CaseInputOutput
+3
+10 20 30
+0
+Value After Steps: 10
+Weightage - 20InputOutput
+3
+7 14 21
+4
+Value After Steps: 14
+Weightage - 20InputOutput
+4
+5 15 25 35
+6
+Value After Steps: 25
+Weightage - 30InputOutput
+5
+11 22 33 44 55
+13
+Value After Steps: 44
+Weightage - 30Sample InputSample Output
+4
+3 6 9 12
+5
+Value After Steps: 6
+Sample InputSample Output
+6
+2 4 6 8 10 12
+9
+Value After Steps: 8
+Solution
+Header
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* next;
+};
+Node* insertEnd(Node* head, int value) {
+    Node* newNode = new Node;
+    newNode->data = value;
+    if (head == NULL) {
+        newNode->next = newNode;
+        return newNode;
+    }
+    Node* temp = head;
+    while (temp->next != head) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->next = head;
+    return head;
+}
+int valueAfterSteps(Node* head, int steps) {
+    Node* temp = head;
+    for (int i = 0; i < steps; i++) {
+        temp = temp->next;
+    }
+    return temp->data;
+}
+Footer
+int main() {
+    int n, steps;
+    cin >> n;
+    Node* head = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        head = insertEnd(head, value);
+    }
+    cin >> steps;
+    cout << "Value After Steps: " << valueAfterSteps(head, steps) << endl;
+    return 0;
+}
+Q 4. Problem Statement
+Eswari builds a calculator for her students that evaluates expressions written in postfix form. In a postfix expression, the operator comes after its two operands. For example, 23+ means 2 + 3, and 93- means 9 - 3. Every operand is a single digit from 0 to 9, and the operators are +, -, *, and /. The division is an integer division. The function evaluate uses a stack to evaluate the expression and returns the result.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of a string expr representing the postfix expression.
+Output Format 
+The first line of output prints "Result: " followed by an integer representing the value of the expression.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of expr ≤ 49
+The expression is a valid postfix expression made of the digits 0 to 9 and the operators +, -, *, and /.
+There is no division by zero in the expression.
+Sample Input Sample Output 
+234*+
+Result: 14
+Sample Input Sample Output 
+92-3*
+Result: 21
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+23+
+Result: 5
+Weightage - 20InputOutput
+93-
+Result: 6
+Weightage - 20InputOutput
+531*+9-
+Result: -1
+Weightage - 30InputOutput
+82/34-*
+Result: -4
+Weightage - 30Sample InputSample Output
+234*+
+Result: 14
+Sample InputSample Output
+92-3*
+Result: 21
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int evaluate(string expr) {
+    int stack[50];
+    int top = -1;
+    for (int i = 0; i < expr.length(); i++) {
+        char c = expr[i];
+        if (c >= '0' && c <= '9') {
+            top = top + 1;
+            stack[top] = c - '0';
+        } else {
+            int b = stack[top];
+            top = top - 1;
+            int a = stack[top];
+            top = top - 1;
+            int result = 0;
+            if (c == '+') {
+                result = a + b;
+            } else if (c == '-') {
+                result = a - b;
+            } else if (c == '*') {
+                result = a * b;
+            } else {
+                result = a / b;
+            }
+            top = top + 1;
+            stack[top] = result;
+        }
+    }
+    return stack[top];
+}
+Footer
+int main() {
+    string expr;
+    cin >> expr;
+    cout << "Result: " << evaluate(expr) << endl;
+    return 0;
+}
+Q 5.Problem Statement
+Bhuvan builds a "recent files" list for a text editor using a doubly linked list. Every file number that is opened is added at the front of the list, so the newest file is always the first node. The program keeps a pointer to the first node and a pointer to the last node of the list. 
+The function insertFront adds a new file at the front, the function printForward prints the file numbers from the first node to the last node, and the function printBackward prints the file numbers from the last node to the first node by following the previous links.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of files opened.
+The second line of input consists of n space-separated integers representing the file numbers in the order in which they are opened.
+Output Format 
+The first line of output prints "Forward:" followed by the file numbers from the first node to the last node, each preceded by a space.
+The second line of output prints "Backward:" followed by the file numbers from the last node to the first node, each preceded by a space.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+1 ≤ file number ≤ 10000
+Sample Input Sample Output 
+4
+1 2 3 4
+Forward: 4 3 2 1
+Backward: 1 2 3 4
+Sample Input Sample Output 
+2
+15 25
+Forward: 25 15
+Backward: 15 25
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+1
+8
+Forward: 8
+Backward: 8
+Weightage - 20InputOutput
+3
+10 20 30
+Forward: 30 20 10
+Backward: 10 20 30
+Weightage - 20InputOutput
+5
+7 3 9 1 5
+Forward: 5 1 9 3 7
+Backward: 7 3 9 1 5
+Weightage - 30InputOutput
+6
+21 22 23 24 25 26
+Forward: 26 25 24 23 22 21
+Backward: 21 22 23 24 25 26
+Weightage - 30Sample InputSample Output
+4
+1 2 3 4
+Forward: 4 3 2 1
+Backward: 1 2 3 4
+Sample InputSample Output
+2
+15 25
+Forward: 25 15
+Backward: 15 25
+Solution
+Header
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+};
+void insertFront(Node*& head, Node*& tail, int value) {
+    Node* newNode = new Node;
+    newNode->data = value;
+    newNode->prev = NULL;
+    newNode->next = head;
+    if (head == NULL) {
+        tail = newNode;
+    } else {
+        head->prev = newNode;
+    }
+    head = newNode;
+}
+void printForward(Node* head) {
+    cout << "Forward:";
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << " " << temp->data;
+        temp = temp->next;
+    }
+    cout << endl;
+}
+void printBackward(Node* tail) {
+    cout << "Backward:";
+    Node* temp = tail;
+    while (temp != NULL) {
+        cout << " " << temp->data;
+        temp = temp->prev;
+    }
+    cout << endl;
+}
+Footer
+int main() {
+    int n;
+    cin >> n;
+    Node* head = NULL;
+    Node* tail = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        insertFront(head, tail, value);
+    }
+    printForward(head);
+    printBackward(tail);
+    return 0;
+}
+COD
+Q1.
+Problem Statement
+Dr. Anita maintains the reporting hierarchy of a college department as a complete binary tree. The employee IDs are stored level by level in an array, so the node at index i has its left child at index 2i + 1 and its right child at index 2i + 2, provided those indices are less than the number of nodes.
+Write a program that reads the array and prints the preorder (root, left, right), inorder (left, root, right), and postorder (left, right, root) traversals of the tree, using recursion on the array indices.
+Input Format 
+The first line of input consists of an integer n representing the number of nodes in the tree.
+The second line of input consists of n space-separated integers representing the node values stored level by level, starting with the root at index 0.
+Output Format 
+The first line of output prints "Preorder: " followed by the preorder traversal of the tree separated by spaces.
+The second line of output prints "Inorder: " followed by the inorder traversal of the tree separated by spaces.
+The third line of output prints "Postorder: " followed by the postorder traversal of the tree separated by spaces.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 100
+1 ≤ node values[i] ≤ 1000
+Sample Input Sample Output 
+4
+15 10 20 5
+Preorder: 15 10 5 20
+Inorder: 5 10 15 20
+Postorder: 5 10 20 15
+Sample Input Sample Output 
+6
+2 4 6 8 10 12
+Preorder: 2 4 8 10 6 12
+Inorder: 8 4 10 2 12 6
+Postorder: 8 10 4 12 6 2
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+7
+1 2 3 4 5 6 7
+Preorder: 1 2 4 5 3 6 7
+Inorder: 4 2 5 1 6 3 7
+Postorder: 4 5 2 6 7 3 1
+Weightage - 25InputOutput
+1
+10
+Preorder: 10
+Inorder: 10
+Postorder: 10
+Weightage - 25InputOutput
+3
+5 3 8
+Preorder: 5 3 8
+Inorder: 3 5 8
+Postorder: 3 8 5
+Weightage - 25InputOutput
+5
+1 2 3 4 5
+Preorder: 1 2 4 5 3
+Inorder: 4 2 5 1 3
+Postorder: 4 5 2 3 1
+Weightage - 25Sample InputSample Output
+4
+15 10 20 5
+Preorder: 15 10 5 20
+Inorder: 5 10 15 20
+Postorder: 5 10 20 15
+Sample InputSample Output
+6
+2 4 6 8 10 12
+Preorder: 2 4 8 10 6 12
+Inorder: 8 4 10 2 12 6
+Postorder: 8 10 4 12 6 2
+Solution
+#include <stdio.h>
+int n;
+int a[105];
+int res[105];
+int cnt;
+void preorder(int i) {
+    if (i >= n) {
+        return;
+    }
+    res[cnt++] = a[i];
+    preorder(2 * i + 1);
+    preorder(2 * i + 2);
+}
+void inorder(int i) {
+    if (i >= n) {
+        return;
+    }
+    inorder(2 * i + 1);
+    res[cnt++] = a[i];
+    inorder(2 * i + 2);
+}
+void postorder(int i) {
+    if (i >= n) {
+        return;
+    }
+    postorder(2 * i + 1);
+    postorder(2 * i + 2);
+    res[cnt++] = a[i];
+}
+void show(char *label) {
+    printf("%s:", label);
+    for (int i = 0; i < cnt; i++) {
+        printf(" %d", res[i]);
+    }
+    printf("\n");
+}
+int main() {
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    cnt = 0;
+    preorder(0);
+    show("Preorder");
+    cnt = 0;
+    inorder(0);
+    show("Inorder");
+    cnt = 0;
+    postorder(0);
+    show("Postorder");
+    return 0;
+}
+Q2.
+Problem Statement
+Tarun is designing a help desk where every support ticket carries a priority number, and a smaller number means a more urgent ticket. The tickets are kept in a binary min-heap stored in an array, so that the most urgent ticket is always at index 0.
+Write a program that inserts the given priorities into an initially empty min-heap one by one. Each new value is placed at the end of the array and then moved up: while its parent is larger, swap it with the parent. The parent of the element at index i is at index (i - 1) / 2 using integer division. Print the array after all insertions.
+Input Format 
+The first line of input consists of an integer n representing the number of tickets.
+The second line of input consists of n space-separated integers representing the priorities in the order they arrive.
+Output Format 
+The first line of output prints "Min-Heap: " followed by the elements of the heap array from index 0 onwards separated by spaces.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 100
+1 ≤ priorities[i] ≤ 1000
+Sample Input Sample Output 
+4
+12 7 3 9
+Min-Heap: 3 9 7 12
+Sample Input Sample Output 
+5
+20 15 10 5 1
+Min-Heap: 1 5 15 20 10
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+5
+5 3 8 1 2
+Min-Heap: 1 2 8 5 3
+Weightage - 25InputOutput
+1
+7
+Min-Heap: 7
+Weightage - 25InputOutput
+4
+4 3 2 1
+Min-Heap: 1 2 3 4
+Weightage - 25InputOutput
+6
+10 20 30 40 50 60
+Min-Heap: 10 20 30 40 50 60
+Weightage - 25Sample InputSample Output
+4
+12 7 3 9
+Min-Heap: 3 9 7 12
+Sample InputSample Output
+5
+20 15 10 5 1
+Min-Heap: 1 5 15 20 10
+Solution
+#include <stdio.h>
+int main() {
+    int n;
+    int h[105];
+    int size = 0;
+    scanf("%d", &n);
+    for (int k = 0; k < n; k++) {
+        int x;
+        scanf("%d", &x);
+        h[size] = x;
+        int i = size;
+        size++;
+        while (i > 0 && h[(i - 1) / 2] > h[i]) {
+            int parent = (i - 1) / 2;
+            int temp = h[parent];
+            h[parent] = h[i];
+            h[i] = temp;
+            i = parent;
+        }
+    }
+    printf("Min-Heap:");
+    for (int i = 0; i < size; i++) {
+        printf(" %d", h[i]);
+    }
+    printf("\n");
+    return 0;
+}
+Q3.
+Problem Statement
+Lavanya is teaching a compiler design lab and wants to show her students how a postfix expression turns into an expression tree. In an expression tree, every leaf holds an operand and every internal node holds an operator whose left and right children are its two operands.
+Write a program that reads a postfix expression and builds its expression tree using a stack of tree nodes: push a new node for every operand, and for every operator create a node, make the top of the stack its right child, the next one its left child, and push it back. Finally, print the expression in infix form by an inorder traversal, wrapping every operator node and its two operands in a pair of parentheses. A single operand is printed without parentheses.
+Note: Use the malloc() function to allocate memory for the nodes of the tree.
+Input Format 
+The first line of input consists of a string s representing the postfix expression with no spaces.
+Output Format 
+The first line of output prints "Infix Expression: " followed by the fully parenthesized infix form of the expression.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of s ≤ 50
+s is a valid postfix expression containing lowercase letters as operands and the operators + - * /
+Sample Input Sample Output 
+xy-
+Infix Expression: (x-y)
+Sample Input Sample Output 
+pqr+-
+Infix Expression: (p-(q+r))
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+ab+
+Infix Expression: (a+b)
+Weightage - 25InputOutput
+ab+c*
+Infix Expression: ((a+b)*c)
+Weightage - 25InputOutput
+abc+*
+Infix Expression: (a*(b+c))
+Weightage - 25InputOutput
+a
+Infix Expression: a
+Weightage - 25Sample InputSample Output
+xy-
+Infix Expression: (x-y)
+Sample InputSample Output
+pqr+-
+Infix Expression: (p-(q+r))
+Solution
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    char data;
+    struct Node *left;
+    struct Node *right;
+};
+struct Node *newNode(char c) {
+    struct Node *node = (struct Node *)malloc(sizeof(struct Node));
+    node->data = c;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+void printInfix(struct Node *root) {
+    if (root == NULL) {
+        return;
+    }
+    if (root->left == NULL && root->right == NULL) {
+        printf("%c", root->data);
+        return;
+    }
+    printf("(");
+    printInfix(root->left);
+    printf("%c", root->data);
+    printInfix(root->right);
+    printf(")");
+}
+int main() {
+    char s[55];
+    struct Node *stack[55];
+    int top = -1;
+    scanf("%s", s);
+    for (int i = 0; s[i] != '\0'; i++) {
+        char c = s[i];
+        struct Node *node = newNode(c);
+        if (c < 'a' || c > 'z') {
+            node->right = stack[top];
+            top--;
+            node->left = stack[top];
+            top--;
+        }
+        top++;
+        stack[top] = node;
+    }
+    printf("Infix Expression: ");
+    printInfix(stack[top]);
+    printf("\n");
+    return 0;
+}
+Q4.
+Problem Statement
+Suresh organises the digital catalogue of a library in a binary search tree of book IDs. Each book ID is inserted in the order it was received: an ID smaller than the current node goes to the left subtree, and an ID larger than the current node goes to the right subtree. All book IDs in the catalogue are different.
+Write a program that builds the binary search tree from the given IDs and then searches for a given key starting from the root. The depth of a node is the number of edges on the path from the root to that node, so the root has depth 0. If the key is in the tree, print its depth, otherwise report that it was not found.
+Note: Use the malloc() function to allocate memory for the nodes of the tree.
+Input Format 
+The first line of input consists of an integer n representing the number of book IDs.
+The second line of input consists of n space-separated integers representing the book IDs in the order they are inserted.
+The third line of input consists of an integer key representing the book ID to search for.
+Output Format 
+If the key is present, the first line of output prints "Found at depth " followed by an integer representing the depth of the node holding the key.
+If the key is not present, the first line of output prints the string "Not Found".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 100
+1 ≤ book IDs[i], key ≤ 1000
+All book IDs are distinct.
+Sample Input Sample Output 
+5
+30 20 40 10 25
+25
+Found at depth 2
+Sample Input Sample Output 
+3
+5 2 8
+9
+Not Found
+Time Limit: - ms Memory Limit: - kb Code Size: - kb 
+SOLUTION
+Hidden Test CaseInputOutput
+7
+50 30 70 20 40 60 80
+60
+Found at depth 2
+Weightage - 25InputOutput
+1
+10
+10
+Found at depth 0
+Weightage - 25InputOutput
+5
+40 20 60 10 30
+55
+Not Found
+Weightage - 25InputOutput
+6
+10 20 30 40 50 60
+60
+Found at depth 5
+Weightage - 25Sample InputSample Output
+5
+30 20 40 10 25
+25
+Found at depth 2
+Sample InputSample Output
+3
+5 2 8
+9
+Not Found
+Solution
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    int data;
+    struct Node *left;
+    struct Node *right;
+};
+struct Node *insert(struct Node *root, int x) {
+    if (root == NULL) {
+        struct Node *node = (struct Node *)malloc(sizeof(struct Node));
+        node->data = x;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
+    if (x < root->data) {
+        root->left = insert(root->left, x);
+    } else {
+        root->right = insert(root->right, x);
+    }
+    return root;
+}
+int main() {
+    int n, key;
+    struct Node *root = NULL;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        int x;
+        scanf("%d", &x);
+        root = insert(root, x);
+    }
+    scanf("%d", &key);
+    struct Node *curr = root;
+    int depth = 0;
+    while (curr != NULL && curr->data != key) {
+        if (key < curr->data) {
+            curr = curr->left;
+        } else {
+            curr = curr->right;
+        }
+        depth++;
+    }
+    if (curr == NULL) {
+        printf("Not Found\n");
+    } else {
+        printf("Found at depth %d\n", depth);
+    }
+    return 0;
+}

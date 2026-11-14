@@ -1,0 +1,1132 @@
+UNIT-4 MCQ
+Q1. Which property holds for every node of a binary search tree?
+A.Keys in the left sub tree are smaller and keys in the right sub tree are larger
+B.Keys in the left sub tree are larger and keys in the right sub tree are smaller
+C.Both sub tree always have the same height
+D.All keys in the tree are equal
+Q2.Which traversal of a binary search tree visits the keys in ascending order?
+A.Preorder
+B.Postorder
+C.Level order
+D.Inorder
+Q3.What is the maximum number of children a node can have in a binary tree?
+A.1
+B.2
+C.3
+D.4
+Q4.If the root is at height 0, what is the maximum number of nodes in a binary tree of height h?
+A.2^h
+B.2h + 1
+C.2^(h+1) - 1
+D.h²
+Q5.A tree with n nodes has how many edges?
+A.n - 1
+B.n
+C.n + 1
+D.n / 2
+Q6.Which operations are used to restore the red-black properties after an insertion?
+A.Recolouring and rotations
+B.Deleting the parent node
+C.Resizing an array
+D.Re-sorting all the keys
+Q7.Which property is true for a red-black tree?
+A.Every node is red
+B.The root is always red
+C.A red node cannot have a red child
+D.All leaves must be red
+Q8.What do the internal nodes of an expression tree contain?
+A.Operands
+B.Operators
+C.Only constants
+D.Only variable names
+Q9.What is the colour of the root node in a red-black tree?
+A.Red
+B.Blue
+C.Either colour
+D.Black
+Q10.Where is the largest key located in a binary search tree?
+A.The root node
+B.The rightmost node
+C.The leftmost node
+D.The last inserted node
+Q11.Which rotation corrects the Left-Right (LR) imbalance in an AVL tree?
+A.Single left rotation
+B.Single right rotation
+C.Right rotation followed by left rotation
+D.Left rotation followed by right rotation
+Q12.Which balance factor values are allowed for every node of an AVL tree?
+A.0 only
+B.0 or 1 only
+C.-.1, 0 or 1
+D.-2 to 2
+Q13.What is the output of the following C++ code?
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node *left, *right;
+};
+void postorder(Node *p) {
+    if (p == NULL)
+        return;
+    postorder(p->left);
+    postorder(p->right);
+    cout << p->data << " ";
+}
+int main() {
+    Node n1 = {1, NULL, NULL}, n3 = {3, NULL, NULL}, n7 = {7, NULL, NULL};
+    Node n2 = {2, &n1, &n3};
+    Node n5 = {5, &n2, &n7};
+    postorder(&n5);
+    return 0;
+}
+A.5 2 1 3 7
+B.1 2 3 5 7
+C.7 5 3 2 1
+D.1 3 2 7 5
+Q14.In a trie, what does the path from the root to a node represent?
+A.A prefix of one or more stored strings
+B.The height of the tree
+C.A sorted list of integers
+D.The balance factor of the node
+Q15.Which of the following is a common application of a trie?
+A.Evaluating postfix expressions
+B.Autocomplete and prefix search
+C.Finding shortest paths in a graph
+D.Balancing parentheses
+Q16.What is the output of the following C++ code, which evaluates the expression tree of (2 + 3) * 4?
+#include <iostream>
+using namespace std;
+struct Node {
+    char op;
+    int val;
+    Node *left, *right;
+};
+int eval(Node *p) {
+    if (p->left == NULL && p->right == NULL)
+        return p->val;
+    int l = eval(p->left);
+    int r = eval(p->right);
+    if (p->op == '+')
+        return l + r;
+    return l * r;
+}
+int main() {
+    Node two = {'0', 2, NULL, NULL};
+    Node three = {'0', 3, NULL, NULL};
+    Node four = {'0', 4, NULL, NULL};
+    Node plus = {'+', 0, &two, &three};
+    Node mul = {'*', 0, &plus, &four};
+    cout << eval(&mul);
+    return 0;
+}
+A.14
+B.20
+C.24
+D.9
+Q17.What is the output of the following C++ code, which counts the nodes created in a trie?
+#include <iostream>
+using namespace std;
+int nodes = 0;
+struct TrieNode {
+    TrieNode *child[26];
+    TrieNode() {
+        for (int i = 0; i < 26; i++)
+            child[i] = NULL;
+        nodes++;
+    }
+};
+void insert(TrieNode *root, const char *s) {
+    TrieNode *p = root;
+    for (int i = 0; s[i] != '\0'; i++) {
+        int idx = s[i] - 'a';
+        if (p->child[idx] == NULL)
+            p->child[idx] = new TrieNode();
+        p = p->child[idx];
+    }
+}
+int main() {
+    TrieNode *root = new TrieNode();
+    insert(root, "to");
+    insert(root, "tea");
+    insert(root, "ten");
+    cout << nodes;
+    return 0;
+}
+A.4
+B.5
+C.7
+D.6
+Q18.What is the output of the following C++ code?
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node *left, *right;
+};
+Node* insert(Node *root, int key) {
+    if (root == NULL) {
+        Node *n = new Node;
+        n->data = key;
+        n->left = n->right = NULL;
+        return n;
+    }
+    if (key < root->data)
+        root->left = insert(root->left, key);
+    else
+        root->right = insert(root->right, key);
+    return root;
+}
+int main() {
+    Node *root = NULL;
+    int keys[] = {50, 30, 70, 20, 40};
+    for (int i = 0; i < 5; i++)
+        root = insert(root, keys[i]);
+    cout << root->left->right->data << " "
+         << root->right->data;
+    return 0;
+}
+A.40 70
+B.20 70
+C.30 70
+D.40 30
+Q19.What is the output of the following C++ code, which performs a single right rotation on a left-heavy chain 30 -> 20 -> 10?
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node *left, *right;
+};
+int main() {
+    Node n10 = {10, NULL, NULL};
+    Node n20 = {20, &n10, NULL};
+    Node n30 = {30, &n20, NULL};
+    Node *y = &n30;
+    Node *x = y->left;
+    y->left = x->right;
+    x->right = y;
+    cout << x->data << " "
+         << x->left->data << " "
+         << x->right->data;
+    return 0;
+}
+A.30 20 10
+B.10 20 30
+C.20 10 30
+D.20 30 10
+Q20.What is the output of the following C++ code?
+#include <iostream>
+using namespace std;
+struct TrieNode {
+    TrieNode *child[26];
+    bool end;
+    TrieNode() {
+        for (int i = 0; i < 26; i++)
+            child[i] = NULL;
+        end = false;
+    }
+};
+void insert(TrieNode *root, const char *s) {
+    TrieNode *p = root;
+    for (int i = 0; s[i] != '\0'; i++) {
+        int idx = s[i] - 'a';
+        if (p->child[idx] == NULL)
+            p->child[idx] = new TrieNode();
+        p = p->child[idx];
+    }
+    p->end = true;
+}
+bool search(TrieNode *root, const char *s) {
+    TrieNode *p = root;
+    for (int i = 0; s[i] != '\0'; i++) {
+        int idx = s[i] - 'a';
+        if (p->child[idx] == NULL)
+            return false;
+        p = p->child[idx];
+    }
+    return p->end;
+}
+int main() {
+    TrieNode *root = new TrieNode();
+    insert(root, "ear");
+    insert(root, "ear");
+    cout << search(root, "ear")
+         << search(root, "ea")
+         << search(root, "dog");
+    return 0;
+}
+A.111
+B.101
+C.100
+D.110
+Unit-4_Debugging
+Q1.Problem Statement
+Mohan keeps the employee IDs of his company in a binary search tree, where the IDs smaller than the ID of a node are placed in its left subtree, and the other IDs are placed in its right subtree. The function insert adds a new ID to the tree. 
+The program prints the three traversals of the tree: the preorder traversal visits the node, then its left subtree, and then its right subtree; the inorder traversal visits the left subtree, then the node, and then the right subtree; and the postorder traversal visits the left subtree, then the right subtree, and then the node.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of employee IDs.
+The second line of input consists of n space-separated integers representing the IDs in the order in which they are added to the tree.
+Output Format 
+The first line of output prints "Preorder:" followed by the IDs in the preorder traversal, each preceded by a space.
+The second line of output prints "Inorder:" followed by the IDs in the inorder traversal, each preceded by a space.
+The third line of output prints "Postorder:" followed by the IDs in the postorder traversal, each preceded by a space.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 20
+1 ≤ ID ≤ 1000, and all the IDs are different.
+Sample Input 
+4
+8 3 10 1
+Sample Output 
+Preorder: 8 3 1 10
+Inorder: 1 3 8 10
+Postorder: 1 3 10 8
+Sample Input 
+6
+15 10 20 8 12 25
+Sample Output 
+Preorder: 15 10 8 12 20 25
+Inorder: 8 10 12 15 20 25
+Postorder: 8 12 10 25 20 15
+Solution:-
+Header
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+Node* insert(Node* root, int value) {
+    if (root == NULL) {
+        Node* node = new Node;
+        node->data = value;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
+    if (value < root->data) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+void preorder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    cout << " " << root->data;
+    preorder(root->left);
+    preorder(root->right);
+}
+void inorder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    inorder(root->left);
+    cout << " " << root->data;
+    inorder(root->right);
+}
+void postorder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout << " " << root->data;
+}
+void printPreorder(Node* root) {
+    cout << "Preorder:";
+    preorder(root);
+    cout << endl;
+}
+void printInorder(Node* root) {
+    cout << "Inorder:";
+    inorder(root);
+    cout << endl;
+}
+void printPostorder(Node* root) {
+    cout << "Postorder:";
+    postorder(root);
+    cout << endl;
+}
+Footer
+int main() {
+    int n;
+    cin >> n;
+    Node* root = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        root = insert(root, value);
+    }
+    printPreorder(root);
+    printInorder(root);
+    printPostorder(root);
+    return 0;
+}
+Q2.Problem Statement
+Nirmala is a librarian who stores the book numbers of her library in a binary search tree, where the numbers smaller than the number of a node are placed in its left subtree, and the other numbers are placed in its right subtree. 
+The function searchResult returns the message "Found" if a given book number is present in the tree, or "Not Found" otherwise. The function findMin returns the smallest book number in the tree, and the function findMax returns the largest book number in the tree.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of books.
+The second line of input consists of n space-separated integers representing the book numbers in the order in which they are added to the tree.
+The third line of input consists of an integer key representing the book number to be searched.
+Output Format 
+The first line of output prints "Search: " followed by "Found" or "Not Found".
+The second line of output prints "Minimum: " followed by the smallest book number.
+The third line of output prints "Maximum: " followed by the largest book number.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 20
+1 ≤ book number, key ≤ 1000, and all the book numbers are different.
+Sample Input 
+50 30 70 20 40
+40
+Sample Output 
+Search: Found
+Minimum: 20
+Maximum: 70
+Sample Input 
+4
+12 8 18 4
+10
+Sample Output 
+Search: Not Found
+Minimum: 4
+Maximum: 18
+Solution:
+HEADER
+#include <iostream>
+#include <string>
+using namespace std;
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+Node* insert(Node* root, int value) {
+    if (root == NULL) {
+        Node* node = new Node;
+        node->data = value;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
+    if (value < root->data) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+string searchResult(Node* root, int key) {
+    Node* temp = root;
+    while (temp != NULL) {
+        if (key == temp->data) {
+            return "Found";
+        } else if (key < temp->data) {
+            temp = temp->left;
+        } else {
+            temp = temp->right;
+        }
+    }
+    return "Not Found";
+}
+int findMin(Node* root) {
+    Node* temp = root;
+    while (temp->left != NULL) {
+        temp = temp->left;
+    }
+    return temp->data;
+}
+int findMax(Node* root) {
+    Node* temp = root;
+    while (temp->right != NULL) {
+        temp = temp->right;
+    }
+    return temp->data;
+}
+Footer
+int main() {
+    int n, key;
+    cin >> n;
+    Node* root = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        root = insert(root, value);
+    }
+    cin >> key;
+    cout << "Search: " << searchResult(root, key) << endl;
+    cout << "Minimum: " << findMin(root) << endl;
+    cout << "Maximum: " << findMax(root) << endl;
+    return 0;
+}
+Q3.Problem Statement
+Pavithra stores the roll numbers of a class in a binary search tree, where the numbers smaller than the number of a node are placed in its left subtree, and the other numbers are placed in its right subtree. The height of an empty tree is 0. 
+The balance factor of a node is the height of its left subtree minus the height of its right subtree. If the balance factor of the root is greater than 1, the tree is rebalanced with a single right rotation at the root. If the balance factor of the root is less than -1, the tree is rebalanced with a single left rotation at the root. Otherwise, the tree is not changed. The function rebalance does this, and the program prints the preorder traversal of the tree after it is rebalanced.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of roll numbers.
+The second line of input consists of n space-separated integers representing the roll numbers in the order in which they are added to the tree.
+Output Format 
+The first line of output prints "Preorder After Balancing:" followed by the roll numbers in the preorder traversal of the rebalanced tree, each preceded by a space.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 20
+1 ≤ roll number ≤ 1000, and all the roll numbers are different.
+The imbalance at the root, if any, can be fixed by a single rotation.
+Sample Input 
+4
+40 30 20 10
+Sample Output 
+Preorder After Balancing: 30 20 10 40
+Sample Input  
+4
+5 10 15 20
+Sample Output 
+Preorder After Balancing: 10 5 15 20
+Solution:-
+Header
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+Node* insert(Node* root, int value) {
+    if (root == NULL) {
+        Node* node = new Node;
+        node->data = value;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
+    if (value < root->data) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+int height(Node* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    int l = height(root->left);
+    int r = height(root->right);
+    if (l > r) {
+        return l + 1;
+    }
+    return r + 1;
+}
+int balanceFactor(Node* root) {
+    return height(root->left) - height(root->right);
+}
+Node* rotateRight(Node* y) {
+    Node* x = y->left;
+    y->left = x->right;
+    x->right = y;
+    return x;
+}
+Node* rotateLeft(Node* x) {
+    Node* y = x->right;
+    x->right = y->left;
+    y->left = x;
+    return y;
+}
+Node* rebalance(Node* root) {
+    int bf = balanceFactor(root);
+    if (bf > 1) {
+        return rotateRight(root);
+    }
+    if (bf < -1) {
+        return rotateLeft(root);
+    }
+    return root;
+}
+void preorder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    cout << " " << root->data;
+    preorder(root->left);
+    preorder(root->right);
+}
+void printPreorder(Node* root) {
+    cout << "Preorder After Balancing:";
+    preorder(root);
+    cout << endl;
+}
+Footer
+int main() {
+    int n;
+    cin >> n;
+    Node* root = NULL;
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        root = insert(root, value);
+    }
+    root = rebalance(root);
+    printPreorder(root);
+    return 0;
+}
+Q4.Problem Statement
+Rajesh builds a calculator that stores an arithmetic expression as an expression tree. In an expression tree, every leaf is an operand and every other node is an operator whose left subtree and right subtree are its two operands. The tree is built from a postfix expression, where the operator comes after its two operands. 
+Every operand is a single digit, and the operators are +, -, *, and /, where / is an integer division. The function printInfix prints the expression in the infix form with a pair of brackets around every operator and its operands, and the function evaluate returns the value of the expression.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of a string expr representing the postfix expression.
+Output Format 
+The first line of output prints "Infix: " followed by the infix expression with brackets.
+The second line of output prints "Value: " followed by an integer representing the value of the expression.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+3 ≤ length of expr ≤ 49
+The expression is a valid postfix expression made of the digits 0 to 9 and the operators +, -, *, and /.
+There is no division by zero in the expression.
+Sample Input 
+84/2*
+Sample Output 
+Infix: ((8/4)*2)
+Value: 4
+Sample Input 
++
+Sample Output
+Infix: (9+(5-1))
+Value: 13
+Solution:-
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+struct Node {
+    char data;
+    Node* left;
+    Node* right;
+};
+Node* newNode(char c) {
+    Node* node = new Node;
+    node->data = c;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+Node* build(string postfix) {
+    Node* stack[50];
+    int top = -1;
+    for (int i = 0; i < postfix.length(); i++) {
+        char c = postfix[i];
+        Node* node = newNode(c);
+        if (c < '0' || c > '9') {
+            Node* right = stack[top];
+            top = top - 1;
+            Node* left = stack[top];
+            top = top - 1;
+            node->left = left;
+            node->right = right;
+        }
+        top = top + 1;
+        stack[top] = node;
+    }
+    return stack[top];
+}
+int evaluate(Node* root) {
+    if (root->left == NULL && root->right == NULL) {
+        return root->data - '0';
+    }
+    int l = evaluate(root->left);
+    int r = evaluate(root->right);
+    if (root->data == '+') {
+        return l + r;
+    }
+    if (root->data == '-') {
+        return l - r;
+    }
+    if (root->data == '*') {
+        return l * r;
+    }
+    return l / r;
+}
+void infix(Node* root) {
+    if (root->left == NULL && root->right == NULL) {
+        cout << root->data;
+        return;
+    }
+    cout << "(";
+    infix(root->left);
+    cout << root->data;
+    infix(root->right);
+    cout << ")";
+}
+void printInfix(Node* root) {
+    cout << "Infix: ";
+    infix(root);
+    cout << endl;
+}
+Footer
+int main() {
+    string expr;
+    cin >> expr;
+    Node* root = build(expr);
+    printInfix(root);
+    cout << "Value: " << evaluate(root) << endl;
+    return 0;
+}
+Q5.Problem Statement
+Sridevi builds a spelling checker that stores the words of a dictionary in a trie. Every node of the trie has 26 links, one for each lowercase letter, and a flag that tells whether a word ends at that node. 
+The function insert adds a word to the trie, and the function search returns "Found" only if the whole word is present in the trie as a word that was inserted, and "Not Found" otherwise. A word that is only a prefix of an inserted word, but was not inserted itself, is not found.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of words in the dictionary.
+The second line of input consists of n space-separated strings representing the words of the dictionary.
+The third line of input consists of an integer q representing the number of words to be searched.
+The fourth line of input consists of q space-separated strings representing the words to be searched.
+Output Format 
+The output contains q lines.
+Each line prints the searched word, ": ", and then "Found" or "Not Found".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n, q ≤ 50
+1 ≤ length of every word ≤ 20, and every word is made of lowercase letters only.
+Sample Input Sample Output 
+3
+red green blue
+3
+red rose blue
+Sample Output 
+red: Found
+rose: Not Found
+blue: Found
+Sample Input
+sky skyline
+3
+sky skyl skyline 
+Sample Output 
+sky: Found
+skyl: Not Found
+skyline: Found
+Solution:-
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+struct TrieNode {
+    TrieNode* children[26];
+    bool isEnd;
+};
+TrieNode* createNode() {
+    TrieNode* node = new TrieNode;
+    for (int i = 0; i < 26; i++) {
+        node->children[i] = NULL;
+    }
+    node->isEnd = false;
+    return node;
+}
+class Trie {
+    TrieNode* root;
+public:
+    Trie() {
+        root = createNode();
+    }
+    void insert(string word) {
+        TrieNode* temp = root;
+        for (int i = 0; i < word.length(); i++) {
+            int index = word[i] - 'a';
+            if (temp->children[index] == NULL) {
+                temp->children[index] = createNode();
+            }
+            temp = temp->children[index];
+        }
+        temp->isEnd = true;
+    }
+    string search(string word) {
+        TrieNode* temp = root;
+        for (int i = 0; i < word.length(); i++) {
+            int index = word[i] - 'a';
+            if (temp->children[index] == NULL) {
+                return "Not Found";
+            }
+            temp = temp->children[index];
+        }
+        if (temp->isEnd) {
+            return "Found";
+        }
+        return "Not Found";
+    }
+};
+Footer
+int main() {
+    int n, q;
+    cin >> n;
+    Trie t;
+    for (int i = 0; i < n; i++) {
+        string word;
+        cin >> word;
+        t.insert(word);
+    }
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        string word;
+        cin >> word;
+        cout << word << ": " << t.search(word) << endl;
+    }
+    return 0;
+}
+Unit4_Coding
+Q1.Problem Statement
+Lakshman is a genealogist who studies a family tree in which every person has at most two children. The people are numbered from 0 to n-1, and the person 0 is the oldest ancestor, who is the root of the tree. For every person, the number of the left child and the number of the right child are given, and -1 means that the child does not exist.
+Write a program that prints the number of people, the number of people who have no children (the leaves), and the height of the tree. The height of the tree is the number of edges on the longest path from the root to a leaf, so a tree with only the root has height 0. Also print whether the tree is a full binary tree, which means that every person has either no child or exactly two children.
+Input Format 
+The first line of input consists of an integer n representing the number of people.
+Each of the next n lines consists of two space-separated integers l and r representing the number of the left child and the number of the right child of the person i, where i is the position of the line starting from 0.
+Output Format 
+The first line of output prints "Nodes: " followed by an integer representing the number of people.
+The second line of output prints "Leaves: " followed by an integer representing the number of leaves.
+The third line of output prints "Height: " followed by an integer representing the height of the tree.
+The fourth line of output prints "Full Binary Tree: Yes" if every person has either no child or exactly two children, or "Full Binary Tree: No" otherwise.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+-1 ≤ l, r < n
+The given data always forms a valid binary tree with the person 0 as the root.
+Sample Input Sample Output 
+5
+1 2
+3 4
+-1 -1
+-1 -1
+-1 -1
+Sample Output
+Nodes: 5
+Leaves: 3
+Height: 2
+Full Binary Tree: Yes
+Sample Input 
+4
+1 2
+3 -1
+-1 -1
+-1 -1
+Sample Output
+Nodes: 4
+Leaves: 2
+Height: 2
+Full Binary Tree: No
+Solution:-
+#include <iostream>
+using namespace std;
+int n;
+int leftChild[50];
+int rightChild[50];
+int height(int node) {
+    if (node == -1) {
+        return -1;
+    }
+    int l = height(leftChild[node]);
+    int r = height(rightChild[node]);
+    if (l > r) {
+        return l + 1;
+    }
+    return r + 1;
+}
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> leftChild[i] >> rightChild[i];
+    }
+    int leaves = 0;
+    bool full = true;
+    for (int i = 0; i < n; i++) {
+        if (leftChild[i] == -1 && rightChild[i] == -1) {
+            leaves = leaves + 1;
+        } else if (leftChild[i] == -1 || rightChild[i] == -1) {
+            full = false;
+        }
+    }
+    cout << "Nodes: " << n << endl;
+    cout << "Leaves: " << leaves << endl;
+    cout << "Height: " << height(0) << endl;
+    if (full) {
+        cout << "Full Binary Tree: Yes" << endl;
+    } else {
+        cout << "Full Binary Tree: No" << endl;
+    }
+    return 0;
+}
+Q2.Problem Statement
+Dr. Subramanian teaches data structures and checks the colouring of the trees drawn by his students. Every node of a tree is coloured either red (R) or black (B). The tree is a correct red-black tree colouring if it follows all these rules: the root is black; a red node never has a red child; and every path from the root down to an empty link has the same number of black nodes. 
+The empty links are not counted as nodes. The number of black nodes on such a path is called the black height of the tree.The ordering of the keys is already correct, and it does not have to be checked.
+Write a program that reads a coloured binary tree and prints whether it is a correct red-black tree colouring, and the black height of the tree if it is correct.
+Input Format 
+The first line of input consists of an integer n representing the number of nodes in the tree.
+Each of the next n lines consists of an integer key, a character color, and two integers l and r separated by spaces, representing the key of the node i, its colour (R or B), and the number of its left child and the number of its right child, where i is the position of the line starting from 0. The value -1 means that the child does not exist. The node 0 is the root.
+Output Format 
+If the tree follows all the rules, the first line of output prints "Valid Red-Black Tree", and the second line of output prints "Black Height: " followed by an integer representing the black height of the tree.
+Otherwise, the first line of output prints "Invalid Red-Black Tree".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+1 ≤ key ≤ 1000
+color is R or B
+-1 ≤ l, r < n
+The given data always forms a valid binary tree with the node 0 as the root.
+Sample Input 
+20 B 1 2
+10 R -1 -1
+30 R -1 -1
+Sample Output
+Valid Red-Black Tree
+Black Height: 1
+Sample Input 
+2
+10 B 1 -1
+5 B -1 -1
+Sample Output
+Invalid Red-Black Tree
+Solution:-
+#include <iostream>
+using namespace std;
+int n;
+char color[50];
+int leftChild[50];
+int rightChild[50];
+int blackHeight(int node) {
+    if (node == -1) {
+        return 0;
+    }
+    if (color[node] == 'R') {
+        if (leftChild[node] != -1 && color[leftChild[node]] == 'R') {
+            return -1;
+        }
+        if (rightChild[node] != -1 && color[rightChild[node]] == 'R') {
+            return -1;
+        }
+    }
+    int l = blackHeight(leftChild[node]);
+    int r = blackHeight(rightChild[node]);
+    if (l == -1 || r == -1 || l != r) {
+        return -1;
+    }
+    if (color[node] == 'B') {
+        return l + 1;
+    }
+    return l;
+}
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int key;
+        cin >> key >> color[i] >> leftChild[i] >> rightChild[i];
+    }
+    if (color[0] == 'R') {
+        cout << "Invalid Red-Black Tree" << endl;
+        return 0;
+    }
+    int bh = blackHeight(0);
+    if (bh == -1) {
+        cout << "Invalid Red-Black Tree" << endl;
+    } else {
+        cout << "Valid Red-Black Tree" << endl;
+        cout << "Black Height: " << bh << endl;
+    }
+    return 0;
+}
+Q3.Problem Statement
+Uma is a developer of a search box that suggests words while a user is typing. A dictionary of words is given, and for every prefix that the user types, the search box must show how many words of the dictionary start with that prefix. A word also starts with itself, so a word that is equal to the prefix is counted too.
+Write a program that stores the dictionary in a trie, where every node keeps the number of the words that pass through it, and prints the number of words for every prefix typed by the user.
+Input Format 
+The first line of input consists of an integer n representing the number of words in the dictionary.
+The second line of input consists of n space-separated strings representing the words of the dictionary.
+The third line of input consists of an integer q representing the number of prefixes typed.
+The fourth line of input consists of q space-separated strings representing the prefixes.
+Output Format 
+The output contains q lines.
+Each line prints the prefix, ": ", and an integer representing the number of words of the dictionary that start with the prefix.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n, q ≤ 50
+1 ≤ length of every word and every prefix ≤ 20, and they are made of lowercase letters only.
+All the words of the dictionary are different.
+Sample Input 
+4
+red rose rat ram
+2
+r ra
+Sample Output 
+r: 4
+ra: 2
+Sample Input 
+3
+sky ski sketch
+3
+sk ski skyline
+Sample Output 
+sk: 3
+ski: 1
+skyline: 0
+Solution:-
+#include <iostream>
+#include <string>
+using namespace std;
+struct TrieNode {
+    TrieNode* children[26];
+    int count;
+};
+TrieNode* createNode() {
+    TrieNode* node = new TrieNode;
+    for (int i = 0; i < 26; i++) {
+        node->children[i] = NULL;
+    }
+    node->count = 0;
+    return node;
+}
+int main() {
+    int n, q;
+    cin >> n;
+    TrieNode* root = createNode();
+    for (int i = 0; i < n; i++) {
+        string word;
+        cin >> word;
+        TrieNode* temp = root;
+        for (int j = 0; j < word.length(); j++) {
+            int index = word[j] - 'a';
+            if (temp->children[index] == NULL) {
+                temp->children[index] = createNode();
+            }
+            temp = temp->children[index];
+            temp->count = temp->count + 1;
+        }
+    }
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        string prefix;
+        cin >> prefix;
+        TrieNode* temp = root;
+        int result = 0;
+        bool found = true;
+        for (int j = 0; j < prefix.length(); j++) {
+            int index = prefix[j] - 'a';
+            if (temp->children[index] == NULL) {
+                found = false;
+                break;
+            }
+            temp = temp->children[index];
+        }
+        if (found) {
+            result = temp->count;
+        }
+        cout << prefix << ": " << result << endl;
+    }
+    return 0;
+}
+Q4.Problem Statement
+Ms. Kalpana teaches AVL trees and wants to tell her students which rotation is needed at the root of a tree. The keys are added one by one, in the given order, to an empty binary search tree, where the keys smaller than the key of a node go to its left subtree, and the other keys go to its right subtree. No rotation is done while the keys are added.
+The height of an empty tree is 0, and the balance factor of a node is the height of its left subtree minus the height of its right subtree. If the balance factor of the root is between -1 and 1, no rotation is needed. Otherwise, the rotation is decided by the balance factor of the taller child of the root:
+Balance factor of the root greater than 1, and balance factor of the left child greater than or equal to 0: LL (single right rotation)
+Balance factor of the root greater than 1, and balance factor of the left child less than 0: LR (double rotation, left and then right)
+Balance factor of the root less than -1, and balance factor of the right child less than or equal to 0: RR (single left rotation)
+Balance factor of the root less than -1, and balance factor of the right child greater than 0: RL (double rotation, right and then left)
+Write a program that prints the balance factor of the root and the rotation needed.
+Input Format 
+The first line of input consists of an integer n representing the number of keys.
+The second line of input consists of n space-separated integers representing the keys in the order in which they are added.
+Output Format 
+The first line of output prints "Balance Factor: " followed by an integer representing the balance factor of the root.
+The second line of output prints "Rotation: " followed by LL, LR, RR, RL, or None.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 20
+1 ≤ key ≤ 1000, and all the keys are different.
+Sample Input 
+4
+8 5 10 3
+Sample Output 
+Balance Factor: 1
+Rotation: None
+Sample Input 
+6
+60 40 80 30 50 20
+Sample Output 
+Balance Factor: 2
+Rotation: LL
+Solution:-
+#include <iostream>
+using namespace std;
+int val[20];
+int leftChild[20];
+int rightChild[20];
+int height(int node) {
+    if (node == -1) {
+        return 0;
+    }
+    int l = height(leftChild[node]);
+    int r = height(rightChild[node]);
+    if (l > r) {
+        return l + 1;
+    }
+    return r + 1;
+}
+int balance(int node) {
+    return height(leftChild[node]) - height(rightChild[node]);
+}
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> val[i];
+        leftChild[i] = -1;
+        rightChild[i] = -1;
+        if (i > 0) {
+            int cur = 0;
+            while (true) {
+                if (val[i] < val[cur]) {
+                    if (leftChild[cur] == -1) {
+                        leftChild[cur] = i;
+                        break;
+                    }
+                    cur = leftChild[cur];
+                } else {
+                    if (rightChild[cur] == -1) {
+                        rightChild[cur] = i;
+                        break;
+                    }
+                    cur = rightChild[cur];
+                }
+            }
+        }
+    }
+    int bf = balance(0);
+    cout << "Balance Factor: " << bf << endl;
+    if (bf > 1) {
+        if (balance(leftChild[0]) >= 0) {
+            cout << "Rotation: LL" << endl;
+        } else {
+            cout << "Rotation: LR" << endl;
+        }
+    } else if (bf < -1) {
+        if (balance(rightChild[0]) <= 0) {
+            cout << "Rotation: RR" << endl;
+        } else {
+            cout << "Rotation: RL" << endl;
+        }
+    } else {
+        cout << "Rotation: None" << endl;
+    }
+    return 0;
+}

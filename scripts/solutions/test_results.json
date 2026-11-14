@@ -1,0 +1,2342 @@
+{
+ "U1_D1": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3.0 2.0 4.0 5.0",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 27.00\nBox Volume: 40.00",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 27.00\nBox Volume: 40.00"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4.0 6.0 2.5 2.0",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 64.00\nBox Volume: 30.00",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 64.00\nBox Volume: 30.00"
+   },
+   {
+    "idx": 3,
+    "tag": "answerkey",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2.0 3.0 3.0 3.0",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 8.00\nBox Volume: 27.00",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 8.00\nBox Volume: 27.00"
+   },
+   {
+    "idx": 4,
+    "tag": "answerkey",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5.0 10.0 2.0 1.5",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 125.00\nBox Volume: 30.00",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 125.00\nBox Volume: 30.00"
+   },
+   {
+    "idx": 5,
+    "tag": "answerkey",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1.2 2.4 3.5 1.2",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 1.73\nBox Volume: 10.08",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 1.73\nBox Volume: 10.08"
+   },
+   {
+    "idx": 6,
+    "tag": "answerkey",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7.3 4.2 6.1 3.3",
+    "expected": "Default Box Volume: 1.00\nCube Volume: 389.02\nBox Volume: 84.55",
+    "actual": "Default Box Volume: 1.00\nCube Volume: 389.02\nBox Volume: 84.55"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_D2": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Report 10",
+    "expected": "Created: Report\nCopied: Report_copy\nTitle: Report, Pages: 10\nTitle: Report_copy, Pages: 10\nDestroyed: Report_copy\nDestroyed: Report",
+    "actual": "Created: Report\nCopied: Report_copy\nTitle: Report, Pages: 10\nTitle: Report_copy, Pages: 10\nDestroyed: Report_copy\nDestroyed: Report"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Notes 25",
+    "expected": "Created: Notes\nCopied: Notes_copy\nTitle: Notes, Pages: 25\nTitle: Notes_copy, Pages: 25\nDestroyed: Notes_copy\nDestroyed: Notes",
+    "actual": "Created: Notes\nCopied: Notes_copy\nTitle: Notes, Pages: 25\nTitle: Notes_copy, Pages: 25\nDestroyed: Notes_copy\nDestroyed: Notes"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Invoice 4",
+    "expected": "Created: Invoice\nCopied: Invoice_copy\nTitle: Invoice, Pages: 4\nTitle: Invoice_copy, Pages: 4\nDestroyed: Invoice_copy\nDestroyed: Invoice",
+    "actual": "Created: Invoice\nCopied: Invoice_copy\nTitle: Invoice, Pages: 4\nTitle: Invoice_copy, Pages: 4\nDestroyed: Invoice_copy\nDestroyed: Invoice"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Resume 2",
+    "expected": "Created: Resume\nCopied: Resume_copy\nTitle: Resume, Pages: 2\nTitle: Resume_copy, Pages: 2\nDestroyed: Resume_copy\nDestroyed: Resume",
+    "actual": "Created: Resume\nCopied: Resume_copy\nTitle: Resume, Pages: 2\nTitle: Resume_copy, Pages: 2\nDestroyed: Resume_copy\nDestroyed: Resume"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Syllabus 120",
+    "expected": "Created: Syllabus\nCopied: Syllabus_copy\nTitle: Syllabus, Pages: 120\nTitle: Syllabus_copy, Pages: 120\nDestroyed: Syllabus_copy\nDestroyed: Syllabus",
+    "actual": "Created: Syllabus\nCopied: Syllabus_copy\nTitle: Syllabus, Pages: 120\nTitle: Syllabus_copy, Pages: 120\nDestroyed: Syllabus_copy\nDestroyed: Syllabus"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Thesis 350",
+    "expected": "Created: Thesis\nCopied: Thesis_copy\nTitle: Thesis, Pages: 350\nTitle: Thesis_copy, Pages: 350\nDestroyed: Thesis_copy\nDestroyed: Thesis",
+    "actual": "Created: Thesis\nCopied: Thesis_copy\nTitle: Thesis, Pages: 350\nTitle: Thesis_copy, Pages: 350\nDestroyed: Thesis_copy\nDestroyed: Thesis"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_D3": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5000.0 1000.0 2000.0",
+    "expected": "Withdrawal Successful\nBalance: 4000.00",
+    "actual": "Withdrawal Successful\nBalance: 4000.00"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1500.5 500.0 3000.0",
+    "expected": "Insufficient Balance\nBalance: 2000.50",
+    "actual": "Insufficient Balance\nBalance: 2000.50"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3000.0 500.0 1000.0",
+    "expected": "Withdrawal Successful\nBalance: 2500.00",
+    "actual": "Withdrawal Successful\nBalance: 2500.00"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "800.0 200.0 5000.0",
+    "expected": "Insufficient Balance\nBalance: 1000.00",
+    "actual": "Insufficient Balance\nBalance: 1000.00"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "12345.75 1000.25 345.5",
+    "expected": "Withdrawal Successful\nBalance: 13000.50",
+    "actual": "Withdrawal Successful\nBalance: 13000.50"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "99.5 0.5 100.0",
+    "expected": "Withdrawal Successful\nBalance: 0.00",
+    "actual": "Withdrawal Successful\nBalance: 0.00"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_D4": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Arun 70 5 3",
+    "expected": "Name: Arun\nMarks: 78",
+    "actual": "Name: Arun\nMarks: 78"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Meena 55 10 5",
+    "expected": "Name: Meena\nMarks: 70",
+    "actual": "Name: Meena\nMarks: 70"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Ravi 40 2 3",
+    "expected": "Name: Ravi\nMarks: 45",
+    "actual": "Name: Ravi\nMarks: 45"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Priya 82 8 4",
+    "expected": "Name: Priya\nMarks: 94",
+    "actual": "Name: Priya\nMarks: 94"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Kiran 60 15 10",
+    "expected": "Name: Kiran\nMarks: 85",
+    "actual": "Name: Kiran\nMarks: 85"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Sneha 33 7 20",
+    "expected": "Name: Sneha\nMarks: 60",
+    "actual": "Name: Sneha\nMarks: 60"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_D5": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\nArun 70 Meena 92 Ravi 85",
+    "expected": "Top Player: Meena\nHighest Score: 92",
+    "actual": "Top Player: Meena\nHighest Score: 92"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\nPriya 60 Kiran 60",
+    "expected": "Top Player: Priya\nHighest Score: 60",
+    "actual": "Top Player: Priya\nHighest Score: 60"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\nDivya 45 Hari 88 Isha 67 Jay 88",
+    "expected": "Top Player: Hari\nHighest Score: 88",
+    "actual": "Top Player: Hari\nHighest Score: 88"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\nSneha 99",
+    "expected": "Top Player: Sneha\nHighest Score: 99",
+    "actual": "Top Player: Sneha\nHighest Score: 99"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\nLatha 52 Mani 61 Nila 77 Omar 93 Pooja 80",
+    "expected": "Top Player: Omar\nHighest Score: 93",
+    "actual": "Top Player: Omar\nHighest Score: 93"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\nQadir 40 Rani 72 Sita 72 Tarun 55 Uma 90 Vijay 90",
+    "expected": "Top Player: Uma\nHighest Score: 90",
+    "actual": "Top Player: Uma\nHighest Score: 90"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_C1": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10 30",
+    "expected": "Prime Count: 6\nLargest Prime: 29",
+    "actual": "Prime Count: 6\nLargest Prime: 29"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1 10",
+    "expected": "Prime Count: 4\nLargest Prime: 7",
+    "actual": "Prime Count: 4\nLargest Prime: 7"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "20 22",
+    "expected": "Prime Count: 0\nLargest Prime: None",
+    "actual": "Prime Count: 0\nLargest Prime: None"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "50 60",
+    "expected": "Prime Count: 2\nLargest Prime: 59",
+    "actual": "Prime Count: 2\nLargest Prime: 59"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "100 150",
+    "expected": "Prime Count: 10\nLargest Prime: 149",
+    "actual": "Prime Count: 10\nLargest Prime: 149"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "500 600",
+    "expected": "Prime Count: 14\nLargest Prime: 599",
+    "actual": "Prime Count: 14\nLargest Prime: 599"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_C2": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n22.5 24.0 19.5 26.5 23.0",
+    "expected": "Highest: 26.50\nLowest: 19.50\nAverage: 23.10",
+    "actual": "Highest: 26.50\nLowest: 19.50\nAverage: 23.10"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n30.0 28.5 31.5",
+    "expected": "Highest: 31.50\nLowest: 28.50\nAverage: 30.00",
+    "actual": "Highest: 31.50\nLowest: 28.50\nAverage: 30.00"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n25.0",
+    "expected": "Highest: 25.00\nLowest: 25.00\nAverage: 25.00",
+    "actual": "Highest: 25.00\nLowest: 25.00\nAverage: 25.00"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n18.0 21.0 19.0 22.0",
+    "expected": "Highest: 22.00\nLowest: 18.00\nAverage: 20.00",
+    "actual": "Highest: 22.00\nLowest: 18.00\nAverage: 20.00"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7\n12.5 15.0 9.5 18.0 11.0 14.5 16.0",
+    "expected": "Highest: 18.00\nLowest: 9.50\nAverage: 13.79",
+    "actual": "Highest: 18.00\nLowest: 9.50\nAverage: 13.79"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10\n-5.0 -2.5 0.0 3.5 7.0 -8.0 1.5 4.0 2.0 -1.0",
+    "expected": "Highest: 7.00\nLowest: -8.00\nAverage: 0.15",
+    "actual": "Highest: 7.00\nLowest: -8.00\nAverage: 0.15"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_C3": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Tea 3",
+    "expected": "Timer Created: Tea\n3\n2\n1\nTime Up\nTimer Destroyed: Tea",
+    "actual": "Timer Created: Tea\n3\n2\n1\nTime Up\nTimer Destroyed: Tea"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Pasta 5",
+    "expected": "Timer Created: Pasta\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Pasta",
+    "actual": "Timer Created: Pasta\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Pasta"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Egg 1",
+    "expected": "Timer Created: Egg\n1\nTime Up\nTimer Destroyed: Egg",
+    "actual": "Timer Created: Egg\n1\nTime Up\nTimer Destroyed: Egg"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Coffee 4",
+    "expected": "Timer Created: Coffee\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Coffee",
+    "actual": "Timer Created: Coffee\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Coffee"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Noodles 8",
+    "expected": "Timer Created: Noodles\n8\n7\n6\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Noodles",
+    "actual": "Timer Created: Noodles\n8\n7\n6\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Noodles"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Bread 10",
+    "expected": "Timer Created: Bread\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Bread",
+    "actual": "Timer Created: Bread\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nTime Up\nTimer Destroyed: Bread"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U1_C4": {
+  "unit": "U1",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2024 2",
+    "expected": "Leap Year: Yes\nDays: 29",
+    "actual": "Leap Year: Yes\nDays: 29"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2023 2",
+    "expected": "Leap Year: No\nDays: 28",
+    "actual": "Leap Year: No\nDays: 28"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2023 7",
+    "expected": "Leap Year: No\nDays: 31",
+    "actual": "Leap Year: No\nDays: 31"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2022 11",
+    "expected": "Leap Year: No\nDays: 30",
+    "actual": "Leap Year: No\nDays: 30"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1900 2",
+    "expected": "Leap Year: No\nDays: 28",
+    "actual": "Leap Year: No\nDays: 28"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2000 2",
+    "expected": "Leap Year: Yes\nDays: 29",
+    "actual": "Leap Year: Yes\nDays: 29"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_D1": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 2 1 4",
+    "expected": "Sum: (4, 6)\nProduct: (-5, 14)",
+    "actual": "Sum: (4, 6)\nProduct: (-5, 14)"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 -3 4 5",
+    "expected": "Sum: (6, 2)\nProduct: (23, -2)",
+    "actual": "Sum: (6, 2)\nProduct: (23, -2)"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1 1 1 1",
+    "expected": "Sum: (2, 2)\nProduct: (0, 2)",
+    "actual": "Sum: (2, 2)\nProduct: (0, 2)"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 0 0 5",
+    "expected": "Sum: (5, 5)\nProduct: (0, 25)",
+    "actual": "Sum: (5, 5)\nProduct: (0, 25)"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "-4 7 3 -2",
+    "expected": "Sum: (-1, 5)\nProduct: (2, 29)",
+    "actual": "Sum: (-1, 5)\nProduct: (2, 29)"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10 -6 -8 9",
+    "expected": "Sum: (2, 3)\nProduct: (-26, 138)",
+    "actual": "Sum: (2, 3)\nProduct: (-26, 138)"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_D2": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Oppo 32 ColorOS",
+    "expected": "Device Created: Oppo\nPhone Created: 32\nSmartPhone Created: ColorOS\nBrand: Oppo, Storage: 32, OS: ColorOS\nSmartPhone Destroyed: ColorOS\nPhone Destroyed: 32\nDevice Destroyed: Oppo",
+    "actual": "Device Created: Oppo\nPhone Created: 32\nSmartPhone Created: ColorOS\nBrand: Oppo, Storage: 32, OS: ColorOS\nSmartPhone Destroyed: ColorOS\nPhone Destroyed: 32\nDevice Destroyed: Oppo"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Vivo 16 FunTouch",
+    "expected": "Device Created: Vivo\nPhone Created: 16\nSmartPhone Created: FunTouch\nBrand: Vivo, Storage: 16, OS: FunTouch\nSmartPhone Destroyed: FunTouch\nPhone Destroyed: 16\nDevice Destroyed: Vivo",
+    "actual": "Device Created: Vivo\nPhone Created: 16\nSmartPhone Created: FunTouch\nBrand: Vivo, Storage: 16, OS: FunTouch\nSmartPhone Destroyed: FunTouch\nPhone Destroyed: 16\nDevice Destroyed: Vivo"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Nokia 64 Android",
+    "expected": "Device Created: Nokia\nPhone Created: 64\nSmartPhone Created: Android\nBrand: Nokia, Storage: 64, OS: Android\nSmartPhone Destroyed: Android\nPhone Destroyed: 64\nDevice Destroyed: Nokia",
+    "actual": "Device Created: Nokia\nPhone Created: 64\nSmartPhone Created: Android\nBrand: Nokia, Storage: 64, OS: Android\nSmartPhone Destroyed: Android\nPhone Destroyed: 64\nDevice Destroyed: Nokia"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Sony 128 Windows",
+    "expected": "Device Created: Sony\nPhone Created: 128\nSmartPhone Created: Windows\nBrand: Sony, Storage: 128, OS: Windows\nSmartPhone Destroyed: Windows\nPhone Destroyed: 128\nDevice Destroyed: Sony",
+    "actual": "Device Created: Sony\nPhone Created: 128\nSmartPhone Created: Windows\nBrand: Sony, Storage: 128, OS: Windows\nSmartPhone Destroyed: Windows\nPhone Destroyed: 128\nDevice Destroyed: Sony"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Samsung 256 Tizen",
+    "expected": "Device Created: Samsung\nPhone Created: 256\nSmartPhone Created: Tizen\nBrand: Samsung, Storage: 256, OS: Tizen\nSmartPhone Destroyed: Tizen\nPhone Destroyed: 256\nDevice Destroyed: Samsung",
+    "actual": "Device Created: Samsung\nPhone Created: 256\nSmartPhone Created: Tizen\nBrand: Samsung, Storage: 256, OS: Tizen\nSmartPhone Destroyed: Tizen\nPhone Destroyed: 256\nDevice Destroyed: Samsung"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Apple 512 iOS",
+    "expected": "Device Created: Apple\nPhone Created: 512\nSmartPhone Created: iOS\nBrand: Apple, Storage: 512, OS: iOS\nSmartPhone Destroyed: iOS\nPhone Destroyed: 512\nDevice Destroyed: Apple",
+    "actual": "Device Created: Apple\nPhone Created: 512\nSmartPhone Created: iOS\nBrand: Apple, Storage: 512, OS: iOS\nSmartPhone Destroyed: iOS\nPhone Destroyed: 512\nDevice Destroyed: Apple"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_D3": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "12 35 20\n4.5 9.25",
+    "expected": "Larger of two integers: 35\nLarger of two doubles: 9.25\nLargest of three integers: 35",
+    "actual": "Larger of two integers: 35\nLarger of two doubles: 9.25\nLargest of three integers: 35"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "9 4 17\n6.75 6.5",
+    "expected": "Larger of two integers: 9\nLarger of two doubles: 6.75\nLargest of three integers: 17",
+    "actual": "Larger of two integers: 9\nLarger of two doubles: 6.75\nLargest of three integers: 17"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7 3 5\n1.5 2.5",
+    "expected": "Larger of two integers: 7\nLarger of two doubles: 2.50\nLargest of three integers: 7",
+    "actual": "Larger of two integers: 7\nLarger of two doubles: 2.50\nLargest of three integers: 7"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10 20 30\n8.0 3.5",
+    "expected": "Larger of two integers: 20\nLarger of two doubles: 8.00\nLargest of three integers: 30",
+    "actual": "Larger of two integers: 20\nLarger of two doubles: 8.00\nLargest of three integers: 30"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "-5 -9 -2\n-3.25 -7.5",
+    "expected": "Larger of two integers: -5\nLarger of two doubles: -3.25\nLargest of three integers: -2",
+    "actual": "Larger of two integers: -5\nLarger of two doubles: -3.25\nLargest of three integers: -2"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "100 250 175\n99.99 100.01",
+    "expected": "Larger of two integers: 250\nLarger of two doubles: 100.01\nLargest of three integers: 250",
+    "actual": "Larger of two integers: 250\nLarger of two doubles: 100.01\nLargest of three integers: 250"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_D4": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "50 20 10",
+    "expected": "Booked 20 seats\nBooked 10 seats\nSeats Left: 20",
+    "actual": "Booked 20 seats\nBooked 10 seats\nSeats Left: 20"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "30 25 10",
+    "expected": "Booked 25 seats\nError: Not enough seats\nSeats Left: 5",
+    "actual": "Booked 25 seats\nError: Not enough seats\nSeats Left: 5"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10 10 5",
+    "expected": "Booked 10 seats\nError: Not enough seats\nSeats Left: 0",
+    "actual": "Booked 10 seats\nError: Not enough seats\nSeats Left: 0"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "100 40 60",
+    "expected": "Booked 40 seats\nBooked 60 seats\nSeats Left: 0",
+    "actual": "Booked 40 seats\nBooked 60 seats\nSeats Left: 0"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "8 9 3",
+    "expected": "Error: Not enough seats\nBooked 3 seats\nSeats Left: 5",
+    "actual": "Error: Not enough seats\nBooked 3 seats\nSeats Left: 5"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "45 30 20",
+    "expected": "Booked 30 seats\nError: Not enough seats\nSeats Left: 15",
+    "actual": "Booked 30 seats\nError: Not enough seats\nSeats Left: 15"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_D5": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Latha 45000.0 5000.0\nOmar 30000.0",
+    "expected": "Latha: 50000.00\nOmar: 15000.00",
+    "actual": "Latha: 50000.00\nOmar: 15000.00"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Divya 52000.0 3000.0\nIsha 22000.0",
+    "expected": "Divya: 55000.00\nIsha: 11000.00",
+    "actual": "Divya: 55000.00\nIsha: 11000.00"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Arun 40000.0 5000.0\nRavi 20000.0",
+    "expected": "Arun: 45000.00\nRavi: 10000.00",
+    "actual": "Arun: 45000.00\nRavi: 10000.00"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Meena 55000.5 4500.0\nKiran 18000.0",
+    "expected": "Meena: 59500.50\nKiran: 9000.00",
+    "actual": "Meena: 59500.50\nKiran: 9000.00"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Priya 62000.0 8000.5\nSneha 24000.0",
+    "expected": "Priya: 70000.50\nSneha: 12000.00",
+    "actual": "Priya: 70000.50\nSneha: 12000.00"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "Hari 38000.25 1999.75\nJay 15000.5",
+    "expected": "Hari: 40000.00\nJay: 7500.25",
+    "actual": "Hari: 40000.00\nJay: 7500.25"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_C1": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "40000.0 5 2000.0",
+    "expected": "Salary: 40000.00\nPapers: 5\nTotal Pay: 50000.00",
+    "actual": "Salary: 40000.00\nPapers: 5\nTotal Pay: 50000.00"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "35000.0 3 1500.0",
+    "expected": "Salary: 35000.00\nPapers: 3\nTotal Pay: 39500.00",
+    "actual": "Salary: 35000.00\nPapers: 3\nTotal Pay: 39500.00"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "30000.0 0 1000.0",
+    "expected": "Salary: 30000.00\nPapers: 0\nTotal Pay: 30000.00",
+    "actual": "Salary: 30000.00\nPapers: 0\nTotal Pay: 30000.00"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "45000.5 4 1500.25",
+    "expected": "Salary: 45000.50\nPapers: 4\nTotal Pay: 51001.50",
+    "actual": "Salary: 45000.50\nPapers: 4\nTotal Pay: 51001.50"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "60000.0 10 2500.0",
+    "expected": "Salary: 60000.00\nPapers: 10\nTotal Pay: 85000.00",
+    "actual": "Salary: 60000.00\nPapers: 10\nTotal Pay: 85000.00"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "52500.75 7 1200.5",
+    "expected": "Salary: 52500.75\nPapers: 7\nTotal Pay: 60904.25",
+    "actual": "Salary: 52500.75\nPapers: 7\nTotal Pay: 60904.25"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_C2": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n100 7 5 0 0 3",
+    "expected": "100 / 7 = 14\n5 / 0 : Error: Division by zero\n0 / 3 = 0",
+    "actual": "100 / 7 = 14\n5 / 0 : Error: Division by zero\n0 / 3 = 0"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n7 0 0 0",
+    "expected": "7 / 0 : Error: Division by zero\n0 / 0 : Error: Division by zero",
+    "actual": "7 / 0 : Error: Division by zero\n0 / 0 : Error: Division by zero"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n10 2",
+    "expected": "10 / 2 = 5",
+    "actual": "10 / 2 = 5"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n9 0 7 7",
+    "expected": "9 / 0 : Error: Division by zero\n7 / 7 = 1",
+    "actual": "9 / 0 : Error: Division by zero\n7 / 7 = 1"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n81 9 6 4 12 0 50 5",
+    "expected": "81 / 9 = 9\n6 / 4 = 1\n12 / 0 : Error: Division by zero\n50 / 5 = 10",
+    "actual": "81 / 9 = 9\n6 / 4 = 1\n12 / 0 : Error: Division by zero\n50 / 5 = 10"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n20 4 15 0 9 2",
+    "expected": "20 / 4 = 5\n15 / 0 : Error: Division by zero\n9 / 2 = 4",
+    "actual": "20 / 4 = 5\n15 / 0 : Error: Division by zero\n9 / 2 = 4"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_C3": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n++-+--",
+    "expected": "Final Score: 5\nHighest Score: 7",
+    "actual": "Final Score: 5\nHighest Score: 7"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "0\n--+",
+    "expected": "Final Score: 1\nHighest Score: 1",
+    "actual": "Final Score: 1\nHighest Score: 1"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n+",
+    "expected": "Final Score: 4\nHighest Score: 4",
+    "actual": "Final Score: 4\nHighest Score: 4"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n---",
+    "expected": "Final Score: 0\nHighest Score: 2",
+    "actual": "Final Score: 0\nHighest Score: 2"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "10\n+++---++--+-",
+    "expected": "Final Score: 10\nHighest Score: 13",
+    "actual": "Final Score: 10\nHighest Score: 13"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "0\n+++++-----------",
+    "expected": "Final Score: 0\nHighest Score: 5",
+    "actual": "Final Score: 0\nHighest Score: 5"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U2_C4": {
+  "unit": "U2",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1 1000.0",
+    "expected": "Method: Card\nFee: 20.00\nTotal: 1020.00\nCard Closed\nPayment Closed",
+    "actual": "Method: Card\nFee: 20.00\nTotal: 1020.00\nCard Closed\nPayment Closed"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 2500.0",
+    "expected": "Method: UPI\nFee: 12.50\nTotal: 2512.50\nUPI Closed\nPayment Closed",
+    "actual": "Method: UPI\nFee: 12.50\nTotal: 2512.50\nUPI Closed\nPayment Closed"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1 500.0",
+    "expected": "Method: Card\nFee: 10.00\nTotal: 510.00\nCard Closed\nPayment Closed",
+    "actual": "Method: Card\nFee: 10.00\nTotal: 510.00\nCard Closed\nPayment Closed"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 800.0",
+    "expected": "Method: UPI\nFee: 4.00\nTotal: 804.00\nUPI Closed\nPayment Closed",
+    "actual": "Method: UPI\nFee: 4.00\nTotal: 804.00\nUPI Closed\nPayment Closed"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1 1250.5",
+    "expected": "Method: Card\nFee: 25.01\nTotal: 1275.51\nCard Closed\nPayment Closed",
+    "actual": "Method: Card\nFee: 25.01\nTotal: 1275.51\nCard Closed\nPayment Closed"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 3750.0",
+    "expected": "Method: UPI\nFee: 18.75\nTotal: 3768.75\nUPI Closed\nPayment Closed",
+    "actual": "Method: UPI\nFee: 18.75\nTotal: 3768.75\nUPI Closed\nPayment Closed"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_D1": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n3 1 4 2",
+    "expected": "Original: 3 1 4 2\nReversed: 2 4 1 3",
+    "actual": "Original: 3 1 4 2\nReversed: 2 4 1 3"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n9 6",
+    "expected": "Original: 9 6\nReversed: 6 9",
+    "actual": "Original: 9 6\nReversed: 6 9"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n7",
+    "expected": "Original: 7\nReversed: 7",
+    "actual": "Original: 7\nReversed: 7"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n5 10 15",
+    "expected": "Original: 5 10 15\nReversed: 15 10 5",
+    "actual": "Original: 5 10 15\nReversed: 15 10 5"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n4 8 15 16 23",
+    "expected": "Original: 4 8 15 16 23\nReversed: 23 16 15 8 4",
+    "actual": "Original: 4 8 15 16 23\nReversed: 23 16 15 8 4"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n12 7 33 2 91 40",
+    "expected": "Original: 12 7 33 2 91 40\nReversed: 40 91 2 33 7 12",
+    "actual": "Original: 12 7 33 2 91 40\nReversed: 40 91 2 33 7 12"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_D2": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 5\n1 8\n1 9\n1 7\n1 6\n2 0",
+    "expected": "Enqueued 8\nEnqueued 9\nEnqueued 7\nQueue Full\nDequeued 8\nQueue: 9 7",
+    "actual": "Enqueued 8\nEnqueued 9\nEnqueued 7\nQueue Full\nDequeued 8\nQueue: 9 7"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 4\n1 4\n2 0\n1 2\n1 3",
+    "expected": "Enqueued 4\nDequeued 4\nEnqueued 2\nEnqueued 3\nQueue: 2 3",
+    "actual": "Enqueued 4\nDequeued 4\nEnqueued 2\nEnqueued 3\nQueue: 2 3"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 4\n1 10\n1 20\n2 0\n1 30",
+    "expected": "Enqueued 10\nEnqueued 20\nDequeued 10\nEnqueued 30\nQueue: 20 30",
+    "actual": "Enqueued 10\nEnqueued 20\nDequeued 10\nEnqueued 30\nQueue: 20 30"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2 3\n2 0\n1 5\n2 0",
+    "expected": "Queue Empty\nEnqueued 5\nDequeued 5\nQueue: Empty",
+    "actual": "Queue Empty\nEnqueued 5\nDequeued 5\nQueue: Empty"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 8\n1 1\n1 2\n1 3\n1 4\n2 0\n1 5\n1 6\n2 0",
+    "expected": "Enqueued 1\nEnqueued 2\nEnqueued 3\nQueue Full\nDequeued 1\nEnqueued 5\nQueue Full\nDequeued 2\nQueue: 3 5",
+    "actual": "Enqueued 1\nEnqueued 2\nEnqueued 3\nQueue Full\nDequeued 1\nEnqueued 5\nQueue Full\nDequeued 2\nQueue: 3 5"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 10\n1 11\n1 22\n1 33\n2 0\n2 0\n1 44\n1 55\n1 66\n1 77\n2 0",
+    "expected": "Enqueued 11\nEnqueued 22\nEnqueued 33\nDequeued 11\nDequeued 22\nEnqueued 44\nEnqueued 55\nEnqueued 66\nQueue Full\nDequeued 33\nQueue: 44 55 66",
+    "actual": "Enqueued 11\nEnqueued 22\nEnqueued 33\nDequeued 11\nDequeued 22\nEnqueued 44\nEnqueued 55\nEnqueued 66\nQueue Full\nDequeued 33\nQueue: 44 55 66"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_D3": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n3 6 9 12\n5",
+    "expected": "Value After Steps: 6",
+    "actual": "Value After Steps: 6"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n2 4 6 8 10 12\n9",
+    "expected": "Value After Steps: 8",
+    "actual": "Value After Steps: 8"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n10 20 30\n0",
+    "expected": "Value After Steps: 10",
+    "actual": "Value After Steps: 10"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n7 14 21\n4",
+    "expected": "Value After Steps: 14",
+    "actual": "Value After Steps: 14"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n5 15 25 35\n6",
+    "expected": "Value After Steps: 25",
+    "actual": "Value After Steps: 25"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n11 22 33 44 55\n13",
+    "expected": "Value After Steps: 44",
+    "actual": "Value After Steps: 44"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_D4": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "234*+",
+    "expected": "Result: 14",
+    "actual": "Result: 14"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "92-3*",
+    "expected": "Result: 21",
+    "actual": "Result: 21"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "23+",
+    "expected": "Result: 5",
+    "actual": "Result: 5"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "93-",
+    "expected": "Result: 6",
+    "actual": "Result: 6"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "531*+9-",
+    "expected": "Result: -1",
+    "actual": "Result: -1"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "82/34-*",
+    "expected": "Result: -4",
+    "actual": "Result: -4"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_D5": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n1 2 3 4",
+    "expected": "Forward: 4 3 2 1\nBackward: 1 2 3 4",
+    "actual": "Forward: 4 3 2 1\nBackward: 1 2 3 4"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n15 25",
+    "expected": "Forward: 25 15\nBackward: 15 25",
+    "actual": "Forward: 25 15\nBackward: 15 25"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n8",
+    "expected": "Forward: 8\nBackward: 8",
+    "actual": "Forward: 8\nBackward: 8"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n10 20 30",
+    "expected": "Forward: 30 20 10\nBackward: 10 20 30",
+    "actual": "Forward: 30 20 10\nBackward: 10 20 30"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n7 3 9 1 5",
+    "expected": "Forward: 5 1 9 3 7\nBackward: 7 3 9 1 5",
+    "actual": "Forward: 5 1 9 3 7\nBackward: 7 3 9 1 5"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n21 22 23 24 25 26",
+    "expected": "Forward: 26 25 24 23 22 21\nBackward: 21 22 23 24 25 26",
+    "actual": "Forward: 26 25 24 23 22 21\nBackward: 21 22 23 24 25 26"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_C1": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n15 10 20 5",
+    "expected": "Preorder: 15 10 5 20\nInorder: 5 10 15 20\nPostorder: 5 10 20 15",
+    "actual": "Preorder: 15 10 5 20\nInorder: 5 10 15 20\nPostorder: 5 10 20 15"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n2 4 6 8 10 12",
+    "expected": "Preorder: 2 4 8 10 6 12\nInorder: 8 4 10 2 12 6\nPostorder: 8 10 4 12 6 2",
+    "actual": "Preorder: 2 4 8 10 6 12\nInorder: 8 4 10 2 12 6\nPostorder: 8 10 4 12 6 2"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7\n1 2 3 4 5 6 7",
+    "expected": "Preorder: 1 2 4 5 3 6 7\nInorder: 4 2 5 1 6 3 7\nPostorder: 4 5 2 6 7 3 1",
+    "actual": "Preorder: 1 2 4 5 3 6 7\nInorder: 4 2 5 1 6 3 7\nPostorder: 4 5 2 6 7 3 1"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n10",
+    "expected": "Preorder: 10\nInorder: 10\nPostorder: 10",
+    "actual": "Preorder: 10\nInorder: 10\nPostorder: 10"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n5 3 8",
+    "expected": "Preorder: 5 3 8\nInorder: 3 5 8\nPostorder: 3 8 5",
+    "actual": "Preorder: 5 3 8\nInorder: 3 5 8\nPostorder: 3 8 5"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n1 2 3 4 5",
+    "expected": "Preorder: 1 2 4 5 3\nInorder: 4 2 5 1 3\nPostorder: 4 5 2 3 1",
+    "actual": "Preorder: 1 2 4 5 3\nInorder: 4 2 5 1 3\nPostorder: 4 5 2 3 1"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_C2": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n12 7 3 9",
+    "expected": "Min-Heap: 3 9 7 12",
+    "actual": "Min-Heap: 3 9 7 12"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n20 15 10 5 1",
+    "expected": "Min-Heap: 1 5 15 20 10",
+    "actual": "Min-Heap: 1 5 15 20 10"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n5 3 8 1 2",
+    "expected": "Min-Heap: 1 2 8 5 3",
+    "actual": "Min-Heap: 1 2 8 5 3"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n7",
+    "expected": "Min-Heap: 7",
+    "actual": "Min-Heap: 7"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n4 3 2 1",
+    "expected": "Min-Heap: 1 2 3 4",
+    "actual": "Min-Heap: 1 2 3 4"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n10 20 30 40 50 60",
+    "expected": "Min-Heap: 10 20 30 40 50 60",
+    "actual": "Min-Heap: 10 20 30 40 50 60"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_C3": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "xy-",
+    "expected": "Infix Expression: (x-y)",
+    "actual": "Infix Expression: (x-y)"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "pqr+-",
+    "expected": "Infix Expression: (p-(q+r))",
+    "actual": "Infix Expression: (p-(q+r))"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "ab+",
+    "expected": "Infix Expression: (a+b)",
+    "actual": "Infix Expression: (a+b)"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "ab+c*",
+    "expected": "Infix Expression: ((a+b)*c)",
+    "actual": "Infix Expression: ((a+b)*c)"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "abc+*",
+    "expected": "Infix Expression: (a*(b+c))",
+    "actual": "Infix Expression: (a*(b+c))"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "a",
+    "expected": "Infix Expression: a",
+    "actual": "Infix Expression: a"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U3_C4": {
+  "unit": "U3",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n30 20 40 10 25\n25",
+    "expected": "Found at depth 2",
+    "actual": "Found at depth 2"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n5 2 8\n9",
+    "expected": "Not Found",
+    "actual": "Not Found"
+   },
+   {
+    "idx": 3,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7\n50 30 70 20 40 60 80\n60",
+    "expected": "Found at depth 2",
+    "actual": "Found at depth 2"
+   },
+   {
+    "idx": 4,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "1\n10\n10",
+    "expected": "Found at depth 0",
+    "actual": "Found at depth 0"
+   },
+   {
+    "idx": 5,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n40 20 60 10 30\n55",
+    "expected": "Not Found",
+    "actual": "Not Found"
+   },
+   {
+    "idx": 6,
+    "tag": "hidden",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n10 20 30 40 50 60\n60",
+    "expected": "Found at depth 5",
+    "actual": "Found at depth 5"
+   }
+  ],
+  "n_pass": 6,
+  "n_fail": 0
+ },
+ "U4_D1": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n8 3 10 1",
+    "expected": "Preorder: 8 3 1 10\nInorder: 1 3 8 10\nPostorder: 1 3 10 8",
+    "actual": "Preorder: 8 3 1 10\nInorder: 1 3 8 10\nPostorder: 1 3 10 8"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n15 10 20 8 12 25",
+    "expected": "Preorder: 15 10 8 12 20 25\nInorder: 8 10 12 15 20 25\nPostorder: 8 12 10 25 20 15",
+    "actual": "Preorder: 15 10 8 12 20 25\nInorder: 8 10 12 15 20 25\nPostorder: 8 12 10 25 20 15"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_D2": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "reconstructed",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n50 30 70 20 40\n40",
+    "expected": "Search: Found\nMinimum: 20\nMaximum: 70",
+    "actual": "Search: Found\nMinimum: 20\nMaximum: 70"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n12 8 18 4\n10",
+    "expected": "Search: Not Found\nMinimum: 4\nMaximum: 18",
+    "actual": "Search: Not Found\nMinimum: 4\nMaximum: 18"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_D3": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n40 30 20 10",
+    "expected": "Preorder After Balancing: 30 20 10 40",
+    "actual": "Preorder After Balancing: 30 20 10 40"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n5 10 15 20",
+    "expected": "Preorder After Balancing: 10 5 15 20",
+    "actual": "Preorder After Balancing: 10 5 15 20"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_D4": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "84/2*",
+    "expected": "Infix: ((8/4)*2)\nValue: 4",
+    "actual": "Infix: ((8/4)*2)\nValue: 4"
+   },
+   {
+    "idx": 2,
+    "tag": "reconstructed",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "951-+",
+    "expected": "Infix: (9+(5-1))\nValue: 13",
+    "actual": "Infix: (9+(5-1))\nValue: 13"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_D5": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\nred green blue\n3\nred rose blue",
+    "expected": "red: Found\nrose: Not Found\nblue: Found",
+    "actual": "red: Found\nrose: Not Found\nblue: Found"
+   },
+   {
+    "idx": 2,
+    "tag": "reconstructed",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\nsky skyline\n3\nsky skyl skyline",
+    "expected": "sky: Found\nskyl: Not Found\nskyline: Found",
+    "actual": "sky: Found\nskyl: Not Found\nskyline: Found"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_C1": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5\n1 2\n3 4\n-1 -1\n-1 -1\n-1 -1",
+    "expected": "Nodes: 5\nLeaves: 3\nHeight: 2\nFull Binary Tree: Yes",
+    "actual": "Nodes: 5\nLeaves: 3\nHeight: 2\nFull Binary Tree: Yes"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n1 2\n3 -1\n-1 -1\n-1 -1",
+    "expected": "Nodes: 4\nLeaves: 2\nHeight: 2\nFull Binary Tree: No",
+    "actual": "Nodes: 4\nLeaves: 2\nHeight: 2\nFull Binary Tree: No"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_C2": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\n20 B 1 2\n10 R -1 -1\n30 R -1 -1",
+    "expected": "Valid Red-Black Tree\nBlack Height: 1",
+    "actual": "Valid Red-Black Tree\nBlack Height: 1"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "2\n10 B 1 -1\n5 B -1 -1",
+    "expected": "Invalid Red-Black Tree",
+    "actual": "Invalid Red-Black Tree"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_C3": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\nred rose rat ram\n2\nr ra",
+    "expected": "r: 4\nra: 2",
+    "actual": "r: 4\nra: 2"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3\nsky ski sketch\n3\nsk ski skyline",
+    "expected": "sk: 3\nski: 1\nskyline: 0",
+    "actual": "sk: 3\nski: 1\nskyline: 0"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U4_C4": {
+  "unit": "U4",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4\n8 5 10 3",
+    "expected": "Balance Factor: 1\nRotation: None",
+    "actual": "Balance Factor: 1\nRotation: None"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "6\n60 40 80 30 50 20",
+    "expected": "Balance Factor: 2\nRotation: LL",
+    "actual": "Balance Factor: 2\nRotation: LL"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_D1": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 3\n0 1\n0 2\n0 3",
+    "expected": "0: 1 2 3\n1: 0\n2: 0\n3: 0",
+    "actual": "0: 1 2 3\n1: 0\n2: 0\n3: 0"
+   },
+   {
+    "idx": 2,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 3\n0 1\n1 2\n0 2",
+    "expected": "0: 1 2\n1: 0 2\n2: 0 1",
+    "actual": "0: 1 2\n1: 0 2\n2: 0 1"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_D2": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 4\n0 1\n0 2\n0 3\n0 4",
+    "expected": "Graph Check: No Cycle",
+    "actual": "Graph Check: No Cycle"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 5\n0 1\n1 2\n2 3\n3 4\n4 1",
+    "expected": "Graph Check: Cycle Exists",
+    "actual": "Graph Check: Cycle Exists"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_D3": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "inferred_output",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 4\n0 1\n0 2\n2 3\n3 4\n1",
+    "expected": "Distance of 0: 1\nDistance of 1: 0\nDistance of 2: 2\nDistance of 3: 3\nDistance of 4: 4",
+    "actual": "Distance of 0: 1\nDistance of 1: 0\nDistance of 2: 2\nDistance of 3: 3\nDistance of 4: 4"
+   },
+   {
+    "idx": 2,
+    "tag": "inferred_output",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 4\n0 1\n1 2\n2 3\n3 0\n2",
+    "expected": "Distance of 0: 2\nDistance of 1: 1\nDistance of 2: 0\nDistance of 3: 1",
+    "actual": "Distance of 0: 2\nDistance of 1: 1\nDistance of 2: 0\nDistance of 3: 1"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_D4": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 5\n0 1 5\n0 2 9\n1 2 2\n1 3 7\n2 3 4",
+    "expected": "MST Weight: 11",
+    "actual": "MST Weight: 11"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 6\n0 1 12\n0 4 6\n1 2 10\n2 3 3\n3 4 8\n1 4 5",
+    "expected": "MST Weight: 22",
+    "actual": "MST Weight: 22"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_D5": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 5\n0 1 2\n0 2 6\n1 2 3\n1 3 8\n2 3 1\n0",
+    "expected": "Distances: 0 2 5 6",
+    "actual": "Distances: 0 2 5 6"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 4\n0 1 3\n1 2 4\n2 3 5\n3 4 6\n4",
+    "expected": "Distances: 18 15 11 6 0",
+    "actual": "Distances: 18 15 11 6 0"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_C1": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 2\n0 1\n2 3",
+    "expected": "Semesters: 2",
+    "actual": "Semesters: 2"
+   },
+   {
+    "idx": 2,
+    "tag": "sample",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 3\n1 0\n0 2\n2 1",
+    "expected": "Impossible: Cycle in prerequisites",
+    "actual": "Impossible: Cycle in prerequisites"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_C2": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "inferred_output",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7 6\n0 1\n1 2\n2 3\n3 0\n4 5\n5 6",
+    "expected": "Possible\nTeam A: 0 2 4 6\nTeam B: 1 3 5",
+    "actual": "Possible\nTeam A: 0 2 4 6\nTeam B: 1 3 5"
+   },
+   {
+    "idx": 2,
+    "tag": "inferred_output",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "5 4\n0 1\n0 2\n3 4\n1 4",
+    "expected": "Possible\nTeam A: 0 4\nTeam B: 1 2 3",
+    "actual": "Possible\nTeam A: 0 4\nTeam B: 1 2 3"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_C3": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "3 3\n0 1 10\n0 2 3\n2 1 -5",
+    "expected": "Minimum Cost: 3",
+    "actual": "Minimum Cost: 3"
+   },
+   {
+    "idx": 2,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 3\n0 1 3\n1 2 -2\n2 3 4",
+    "expected": "Minimum Cost: 5",
+    "actual": "Minimum Cost: 5"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ },
+ "U5_C4": {
+  "unit": "U5",
+  "compile": "OK",
+  "tests": [
+   {
+    "idx": 1,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "4 3\n0 2\n2 1\n1 3",
+    "expected": "Components: 1\nLargest Component: 4\nConnected: Yes",
+    "actual": "Components: 1\nLargest Component: 4\nConnected: Yes"
+   },
+   {
+    "idx": 2,
+    "tag": "sample-image",
+    "status": "PASS",
+    "exact": true,
+    "normalized": true,
+    "input": "7 3\n0 6\n1 5\n2 4",
+    "expected": "Components: 4\nLargest Component: 2\nConnected: No",
+    "actual": "Components: 4\nLargest Component: 2\nConnected: No"
+   }
+  ],
+  "n_pass": 2,
+  "n_fail": 0
+ }
+}

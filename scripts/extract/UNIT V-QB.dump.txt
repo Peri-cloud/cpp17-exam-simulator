@@ -1,0 +1,896 @@
+1.MCQ
+Q1.In which kind of graph does BFS give the shortest path in terms of the number of edges?
+Weighted graphs with negative edges
+Only directed acyclic graphs
+Only complete graphs
+Unweighted graphs
+Q2.Which data structure does breadth-first search use?
+Stack
+Priority queue
+Queue
+Binary search tree
+Q3.What is true about the adjacency matrix of an undirected graph?
+It is always upper triangular
+It is always a diagonal matrix
+It is symmetric
+All its entries are 1
+Q4.Which approach produces a topological ordering of a DAG?
+Repeatedly removing a vertex with in-degree zero
+Repeatedly removing the vertex of maximum degree
+Sorting the vertices by name
+Visiting edges in decreasing order of weight
+Q5.Which data structure does an iterative depth first search use?
+Queue
+Stack
+Min-heap
+Hash table
+Q6.What is the space complexity of the adjacency matrix representation of a graph with V vertices?
+O(V²)
+O(V)
+O(V + E)
+O(E)
+Q7.A topological ordering exists only for which kind of graph?
+Undirected graph
+Directed graph containing a cycle
+Complete graph
+Directed acyclic graph
+Q8.What is the space complexity of the adjacency list representation of a graph with V vertices and E edges?
+O(V²)
+O(V + E)
+O(V)
+O(E²)
+Q9.Dijkstra's algorithm does not give correct results for graphs containing which kind of edges?
+Positive weight edges
+Zero weight edges
+Negative weight edges
+Directed edges
+Q10.How does Prim's algorithm grow a minimum spanning tree?
+By adding the heaviest edge that connects the tree to a new vertex
+By adding the minimum-weight edge that connects the tree to a new vertex
+By removing edges from cycles
+By visiting vertices in depth first order
+Q11.When is an undirected graph said to be connected?
+There is a path between every pair of vertices
+Every vertex has degree 2
+The graph has no edges
+The graph has no cycles
+Q12.How many edges does a minimum spanning tree of a connected graph with V vertices have?
+V - 1
+V
+V + 1
+V - 2
+Q13.Which of the following is a real-world application of graphs?
+Evaluating arithmetic expressions only
+Modelling road networks and social networks
+Sorting an array in place
+Allocating arrays in contiguous memory
+Q14.What is the output of the following C++ code?
+#include <iostream>
+using namespace std;
+int main() {
+    int g[4][4] = {{0,1,1,0},{1,0,1,1},{1,1,0,0},{0,1,0,0}};
+    int deg[4] = {0};
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 4; j++)
+            deg[i] += g[i][j];
+    for (int i = 0; i < 4; i++)
+        cout << deg[i] << " ";
+    return 0;
+}
+OUTPUT:
+3 2 3 1
+2 2 3 1
+2 3 2 1
+1 2 3 2
+Q15.Which algorithm can handle negative edge weights and also detect negative cycles?
+Dijkstra's algorithm
+Prim's algorithm
+Depth first search
+Bellman-Ford algorithm
+Q16.What is the output of the following C++ code, which runs Prim's algorithm from vertex 0? (A weight of 0 means there is no edge.)
+#include <iostream>
+using namespace std;
+int main() {
+    int w[4][4] = {{0,2,6,0},{2,0,3,8},{6,3,0,5},{0,8,5,0}};
+    bool inTree[4] = {true, false, false, false};
+    int total = 0;
+    for (int k = 1; k < 4; k++) {
+        int best = 1000, bv = -1;
+        for (int i = 0; i < 4; i++)
+            if (inTree[i])
+                for (int j = 0; j < 4; j++)
+                    if (!inTree[j] && w[i][j] != 0 && w[i][j] < best) {
+                        best = w[i][j];
+                        bv = j;
+                    }
+        inTree[bv] = true;
+        total += best;
+    }
+    cout << total;
+    return 0;
+}
+OUTPUT:
+11
+8
+10
+13
+Q17.What is the output of the following C++ code, which runs BFS from vertex 0?
+#include <iostream>
+using namespace std;
+int main() {
+    int g[5][5] = {{0,1,1,0,0},{1,0,0,0,1},{1,0,0,1,0},{0,0,1,0,1},{0,1,0,1,0}};
+    int q[10], front = 0, rear = 0;
+    bool visited[5] = {false};
+    q[rear++] = 0;
+    visited[0] = true;
+    while (front < rear) {
+        int v = q[front++];
+        cout << v << " ";
+        for (int i = 0; i < 5; i++)
+            if (g[v][i] && !visited[i]) {
+                visited[i] = true;
+                q[rear++] = i;
+            }
+    }
+    return 0;
+}
+OUTPUT:
+0 1 2 3 4
+0 2 1 3 4
+0 1 4 2 3
+0 1 2 4 3
+Q18.What is the output of the following C++ code, which runs Bellman-Ford from vertex 0?
+#include <iostream>
+using namespace std;
+int main() {
+    int u[4] = {0, 0, 1, 2};
+    int v[4] = {1, 2, 2, 3};
+    int w[4] = {4, 5, -3, 2};
+    int dist[4] = {0, 1000, 1000, 1000};
+    for (int pass = 1; pass <= 3; pass++)
+        for (int e = 0; e < 4; e++)
+            if (dist[u[e]] != 1000 && dist[u[e]] + w[e] < dist[v[e]])
+                dist[v[e]] = dist[u[e]] + w[e];
+    for (int i = 0; i < 4; i++)
+        cout << dist[i] << " ";
+    return 0;
+}
+OUTPUT:
+0 4 5 7
+0 4 1 7
+0 5 1 3
+0 4 1 3
+Q19.What is the output of the following C++ code, which performs a topological sort using in-degrees?
+#include <iostream>
+using namespace std;
+int main() {
+    int g[4][4] = {{0,1,1,0},{0,0,0,1},{0,0,0,1},{0,0,0,0}};
+    int indeg[4] = {0}, q[4], front = 0, rear = 0;
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 4; j++)
+            indeg[j] += g[i][j];
+    for (int i = 0; i < 4; i++)
+        if (indeg[i] == 0)
+            q[rear++] = i;
+    while (front < rear) {
+        int v = q[front++];
+        cout << v << " ";
+        for (int j = 0; j < 4; j++)
+            if (g[v][j] && --indeg[j] == 0)
+                q[rear++] = j;
+    }
+    return 0;
+}
+OUTPUT:
+0 2 1 3
+0 1 2 3
+0 1 3 2
+3 2 1 0
+Q20.What is the output of the following C++ code, which runs DFS from vertex 2?
+#include <iostream>
+using namespace std;
+int g[5][5] = {{0,1,1,0,0},{1,0,0,0,1},{1,0,0,1,0},{0,0,1,0,1},{0,1,0,1,0}};
+bool visited[5];
+void dfs(int v) {
+    visited[v] = true;
+    cout << v << " ";
+    for (int i = 0; i < 5; i++)
+        if (g[v][i] && !visited[i])
+            dfs(i);
+}
+int main() {
+    dfs(2);
+    return 0;
+}
+OUTPUT:
+2 0 1 4 3
+2 0 1 3 4
+2 3 4 1 0
+2 3 0 1 4
+2.Debugging
+Q1.Problem Statement
+Anbu prepares the road map of a district with n towns numbered from 0 to n-1. Every road joins two towns and can be used in both directions. The program stores the roads in an adjacency matrix, where the value 1 at the position (i, j) means that the towns i and j are joined by a road. 
+The function addEdge records a road between two towns, and the function printList prints, for every town, the list of the towns that are joined to it by a road, in the increasing order of their numbers.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of towns and the number of roads.
+Each of the next m lines consists of two space-separated integers u and v representing a road between the town u and the town v.
+Output Format 
+The output contains n lines.
+The i-th line prints the town number i, followed by ":", and then the numbers of the towns joined to the town i, in the increasing order, each preceded by a space. If the town i has no road, the line prints only the town number and ":".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v < n
+There are no self-loops and no repeated roads.
+[[IMAGE IN PARAGRAPH]]
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int adj[20][20];
+void addEdge(int u, int v) {
+    adj[u][v] = 1;
+    adj[v][u] = 1;
+}
+void printList(int n) {
+    for (int i = 0; i < n; i++) {
+        cout << i << ":";
+        for (int j = 0; j < n; j++) {
+            if (adj[i][j] == 1) {
+                cout << " " << j;
+            }
+        }
+        cout << endl;
+    }
+}
+Footer
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        addEdge(u, v);
+    }
+    printList(n);
+    return 0;
+}
+2.Problem Statement
+Chandru is a plumber who checks the water pipeline of a colony. The colony has n junctions numbered from 0 to n-1, and every pipe joins two junctions. A pipeline that has a closed loop of pipes can cause a water-flow problem. 
+A closed loop is a path that starts at a junction, uses different pipes, and comes back to the same junction. The network may have several separate parts. The program stores the pipes in an adjacency matrix, and the function hasCycle returns the message "Cycle Exists" if the network has a closed loop in any of its parts, or "No Cycle" otherwise.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of junctions and the number of pipes.
+Each of the next m lines consists of two space-separated integers u and v representing a pipe between the junction u and the junction v.
+Output Format 
+The first line of output prints "Graph Check: " followed by "Cycle Exists" or "No Cycle".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v < n
+There are no self-loops and no repeated pipes.
+ Sample Input				Sample Output
+5 4						Graph Check: No Cycle
+0 1
+0 2
+0 3
+0 4
+Sample Input				Sample Output
+5 5						Graph Check: Cycle Exists
+0 1
+1 2
+2 3
+3 4
+4 1
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int adj[20][20];
+bool visited[20];
+void addEdge(int u, int v) {
+    adj[u][v] = 1;
+    adj[v][u] = 1;
+}
+bool dfs(int n, int u, int parent) {
+    visited[u] = true;
+    for (int v = 0; v < n; v++) {
+        if (adj[u][v] == 1) {
+            if (!visited[v]) {
+                if (dfs(n, v, u)) {
+                    return true;
+                }
+            } else if (v != parent) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+string hasCycle(int n) {
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            if (dfs(n, i, -1)) {
+                return "Cycle Exists";
+            }
+        }
+    }
+    return "No Cycle";
+}
+Footer
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        addEdge(u, v);
+    }
+    cout << "Graph Check: " << hasCycle(n) << endl;
+    return 0;
+}
+Q3.Problem Statement
+Banu is a metro planner who wants to know how many hops a passenger needs to reach every station from a starting station. The metro network has n stations numbered from 0 to n-1, and every track joins two stations and can be used in both directions. 
+One hop means travelling along one track. The function bfs finds the minimum number of hops from the starting station to every station, and stores -1 for a station that cannot be reached. The network is stored in an adjacency matrix.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of stations and the number of tracks.
+Each of the next m lines consists of two space-separated integers u and v representing a track between the station u and the station v.
+The last line of input consists of an integer source representing the starting station.
+Output Format 
+The output contains n lines.
+The i-th line prints "Distance of " followed by the station number i, ": ", and the minimum number of hops from the starting station to the station i, or -1 if the station i cannot be reached.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v, source < n
+There are no self-loops and no repeated tracks.
+Sample Input 				Sample Output
+5 4						
+0 1
+0 2
+2 3
+3 4
+1
+Sample Input 				Sample Output
+4 4
+0 1
+1 2
+2 3
+3 0
+2
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int adj[20][20];
+int dist[20];
+void addEdge(int u, int v) {
+    adj[u][v] = 1;
+    adj[v][u] = 1;
+}
+void bfs(int n, int source) {
+    int queue[20];
+    int front = 0;
+    int rear = 0;
+    for (int i = 0; i < n; i++) {
+        dist[i] = -1;
+    }
+    dist[source] = 0;
+    queue[rear] = source;
+    rear = rear + 1;
+    while (front < rear) {
+        int u = queue[front];
+        front = front + 1;
+        for (int v = 0; v < n; v++) {
+            if (adj[u][v] == 1 && dist[v] == -1) {
+                dist[v] = dist[u] + 1;
+                queue[rear] = v;
+                rear = rear + 1;
+            }
+        }
+    }
+}
+Footer
+int main() {
+    int n, m, source;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        addEdge(u, v);
+    }
+    cin >> source;
+    bfs(n, source);
+    for (int i = 0; i < n; i++) {
+        cout << "Distance of " << i << ": " << dist[i] << endl;
+    }
+    return 0;
+}
+Q4.Problem Statement
+Elango is an engineer who plans to connect n villages numbered from 0 to n-1 with internet cables. A cable can be laid between some pairs of villages, and every possible cable has a cost. He wants every village to be connected to every other village, directly or through other villages, with the smallest possible total cost of the cables. 
+The given possible cables always connect all the villages. The program stores the possible cables in an adjacency matrix, where 0 means that the cable between two villages is not possible, and the function primMST uses Prim's method, starting from the village 0, to find the smallest total cost.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of villages and the number of possible cables.
+Each of the next m lines consists of three space-separated integers u, v, and w representing a possible cable between the village u and the village v with the cost w.
+Output Format 
+The first line of output prints "MST Weight: " followed by an integer representing the smallest total cost of the cables.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+2 ≤ n ≤ 15
+n − 1 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v < n
+1 ≤ w ≤ 100
+There are no self-loops and no repeated cables, and all the villages can be connected.
+Sample Input		 Sample Output
+4 5				MST Weight: 11
+0 1 5
+0 2 9
+1 2 2
+1 3 7
+2 3 4
+Sample Input 		Sample Output
+5 6				MST Weight: 22
+0 1 12
+0 4 6
+1 2 10
+2 3 3
+3 4 8
+1 4 5
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int graph[20][20];
+void addEdge(int u, int v, int w) {
+    graph[u][v] = w;
+    graph[v][u] = w;
+}
+int primMST(int n) {
+    bool inTree[20];
+    int key[20];
+    for (int i = 0; i < n; i++) {
+        key[i] = 1000000000;
+        inTree[i] = false;
+    }
+    key[0] = 0;
+    int total = 0;
+    for (int count = 0; count < n; count++) {
+        int u = -1;
+        for (int v = 0; v < n; v++) {
+            if (!inTree[v] && (u == -1 || key[v] < key[u])) {
+                u = v;
+            }
+        }
+        inTree[u] = true;
+        total = total + key[u];
+        for (int v = 0; v < n; v++) {
+            if (graph[u][v] > 0 && !inTree[v] && graph[u][v] < key[v]) {
+                key[v] = graph[u][v];
+            }
+        }
+    }
+    return total;
+}
+Footer
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        addEdge(u, v, w);
+    }
+    cout << "MST Weight: " << primMST(n) << endl;
+    return 0;
+}
+5.Problem Statement
+Dilip runs a courier service in a region with n towns numbered from 0 to n-1. Every road joins two towns, can be used in both directions, and has a length in kilometers. The program stores the roads in an adjacency matrix, where 0 means that there is no road. 
+The function dijkstra finds the length of the shortest route from the starting town to every town, using Dijkstra's method, and the function printDistances prints the lengths, with "INF" for a town that cannot be reached from the starting town.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of towns and the number of roads.
+Each of the next m lines consists of three space-separated integers u, v, and w representing a road between the town u and the town v with the length w.
+The last line of input consists of an integer source representing the starting town.
+Output Format 
+The first line of output prints "Distances:" followed by n values, each preceded by a space, where the i-th value is the length of the shortest route from the starting town to the town i, or the string "INF" if the town i cannot be reached.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v, source < n
+1 ≤ w ≤ 100
+There are no self-loops and no repeated roads.
+Sample Input 		Sample Output
+4 5				Distances: 0 2 5 6
+0 1 2
+0 2 6
+1 2 3
+1 3 8
+2 3 1
+0
+Sample Input 		Sample Output
+5 4				Distances: 18 15 11 6 0
+0 1 3
+1 2 4
+2 3 5
+3 4 6
+4
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+int graph[20][20];
+void addEdge(int u, int v, int w) {
+    graph[u][v] = w;
+    graph[v][u] = w;
+}
+void dijkstra(int n, int source, int dist[]) {
+    bool done[20];
+    for (int i = 0; i < n; i++) {
+        dist[i] = 1000000000;
+        done[i] = false;
+    }
+    dist[source] = 0;
+    for (int count = 0; count < n; count++) {
+        int u = -1;
+        for (int v = 0; v < n; v++) {
+            if (!done[v] && dist[v] != 1000000000 && (u == -1 || dist[v] < dist[u])) {
+                u = v;
+            }
+        }
+        if (u == -1) {
+            break;
+        }
+        done[u] = true;
+        for (int v = 0; v < n; v++) {
+            if (graph[u][v] > 0 && !done[v] && dist[u] + graph[u][v] < dist[v]) {
+                dist[v] = dist[u] + graph[u][v];
+            }
+        }
+    }
+}
+void printDistances(int n, int dist[]) {
+    cout << "Distances:";
+    for (int i = 0; i < n; i++) {
+        if (dist[i] == 1000000000) {
+            cout << " INF";
+        } else {
+            cout << " " << dist[i];
+        }
+    }
+    cout << endl;
+}
+Footer
+int main() {
+    int n, m, source;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        addEdge(u, v, w);
+    }
+    cin >> source;
+    int dist[20];
+    dijkstra(n, source, dist);
+    printDistances(n, dist);
+    return 0;
+}
+C.CodingTop of Form
+Q1.Problem Statement
+Dr. Fathima is the academic coordinator of a college that offers n courses numbered from 0 to n-1. Some courses have a prerequisite: "a b" means that the course a must be completed in an earlier semester before the course b can be taken. In every semester, a student takes all the courses whose prerequisites are already completed in the earlier semesters, and no other course. A course taken in a semester does not help the courses of the same semester.
+Write a program that prints the minimum number of semesters needed to complete all the courses. If the prerequisites contain a cycle, so that some course can never be taken, print a message.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of courses and the number of prerequisites.
+Each of the next m lines consists of two space-separated integers a and b representing that the course a is a prerequisite of the course b.
+Output Format 
+If all the courses can be completed, the first line of output prints "Semesters: " followed by an integer representing the minimum number of semesters.
+If the prerequisites contain a cycle, the first line of output prints "Impossible: Cycle in prerequisites".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1))
+0 ≤ a, b < n
+There are no self-loops and no repeated prerequisites.
+Sample Input 			Sample Output
+5 2					Semesters: 2
+0 1
+2 3
+Sample Input 			Sample Output
+3 3					Impossible: Cycle in prerequisites
+1 0
+0 2
+2 1
+Solution
+#include <iostream>
+using namespace std;
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int adj[20][20];
+    int indeg[20];
+    for (int i = 0; i < n; i++) {
+        indeg[i] = 0;
+        for (int j = 0; j < n; j++) {
+            adj[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        int a, b;
+        cin >> a >> b;
+        if (adj[a][b] == 0) {
+            adj[a][b] = 1;
+            indeg[b] = indeg[b] + 1;
+        }
+    }
+    bool done[20];
+    for (int i = 0; i < n; i++) {
+        done[i] = false;
+    }
+    int taken = 0;
+    int semesters = 0;
+    while (taken < n) {
+        int batch[20];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (!done[i] && indeg[i] == 0) {
+                batch[count] = i;
+                count = count + 1;
+            }
+        }
+        if (count == 0) {
+            cout << "Impossible: Cycle in prerequisites" << endl;
+            return 0;
+        }
+        for (int k = 0; k < count; k++) {
+            int u = batch[k];
+            done[u] = true;
+            taken = taken + 1;
+            for (int j = 0; j < n; j++) {
+                if (adj[u][j] == 1) {
+                    indeg[j] = indeg[j] - 1;
+                }
+            }
+        }
+        semesters = semesters + 1;
+    }
+    cout << "Semesters: " << semesters << endl;
+    return 0;
+}
+2. Problem Statement
+Ilango is a teacher who has to split n students numbered from 0 to n-1 into two debate teams, Team A and Team B. Some pairs of students are close friends, and he does not want two close friends to be in the same team, because they tend to agree on everything. Every student must be in exactly one team.
+Write a program that finds out whether such a split is possible. To make the answer unique, process the students from the smallest number to the largest. Every student who is not yet placed and is processed gets Team A, and the friends of a student placed in one team must be placed in the other team. Print the teams if the split is possible.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of students and the number of pairs of close friends.
+Each of the next m lines consists of two space-separated integers u and v representing that the student u and the student v are close friends.
+Output Format 
+If the split is possible, the first line of output prints "Possible", the second line of output prints "Team A:" followed by the student numbers of Team A in the increasing order, each preceded by a space, and the third line of output prints "Team B:" followed by the student numbers of Team B in the increasing order, each preceded by a space.
+If the split is not possible, the first line of output prints "Not Possible".
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v < n
+There are no self-loops and no repeated pairs.
+Sample Input 			Sample Output
+7 6
+0 1
+1 2
+2 3
+3 0
+4 5
+5 6
+Sample Input 			Sample Output
+5 4
+0 1
+0 2
+3 4
+1 4
+Solution
+#include <iostream>
+using namespace std;
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int adj[20][20];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            adj[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        adj[u][v] = 1;
+        adj[v][u] = 1;
+    }
+    int color[20];
+    for (int i = 0; i < n; i++) {
+        color[i] = -1;
+    }
+    for (int start = 0; start < n; start++) {
+        if (color[start] != -1) {
+            continue;
+        }
+        int queue[20];
+        int front = 0;
+        int rear = 0;
+        color[start] = 0;
+        queue[rear] = start;
+        rear = rear + 1;
+        while (front < rear) {
+            int u = queue[front];
+            front = front + 1;
+            for (int v = 0; v < n; v++) {
+                if (adj[u][v] == 1) {
+                    if (color[v] == -1) {
+                        color[v] = 1 - color[u];
+                        queue[rear] = v;
+                        rear = rear + 1;
+                    } else if (color[v] == color[u]) {
+                        cout << "Not Possible" << endl;
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+    cout << "Possible" << endl;
+    cout << "Team A:";
+    for (int i = 0; i < n; i++) {
+        if (color[i] == 0) {
+            cout << " " << i;
+        }
+    }
+    cout << endl;
+    cout << "Team B:";
+    for (int i = 0; i < n; i++) {
+        if (color[i] == 1) {
+            cout << " " << i;
+        }
+    }
+    cout << endl;
+    return 0;
+}
+3. Problem Statement
+Gokul plans a long drive from the city 0 to the city n-1 through n cities numbered from 0 to n-1. Some one-way roads have a toll, which is a positive cost, and some roads give a rebate, which is a negative cost. If a driver can reach a group of roads that forms a loop with a negative total cost, the driver could earn unlimited rebates by driving around it, so the cheapest cost is not defined.
+Write a program that prints the minimum total cost of travelling from the city 0 to the city n-1. If the city n-1 cannot be reached from the city 0, print "No Route". If a loop with a negative total cost can be reached from the city 0, print "Negative Cycle" instead.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of cities and the number of roads.
+Each of the next m lines consists of three space-separated integers u, v, and w representing a one-way road from the city u to the city v with the cost w.
+Output Format 
+If a loop with a negative total cost can be reached from the city 0, the first line of output prints "Negative Cycle".
+Otherwise, if the city n-1 cannot be reached, the first line of output prints "No Route".
+Otherwise, the first line of output prints "Minimum Cost: " followed by an integer representing the minimum total cost.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+2 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1))
+0 ≤ u, v < n
+-50 ≤ w ≤ 100, and w ≠ 0
+There are no self-loops and no repeated roads.
+Sample Input                                   Sample Output
+[[IMAGE IN PARAGRAPH]]
+Solution
+#include <iostream>
+using namespace std;
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int eu[105], ev[105], ew[105];
+    for (int i = 0; i < m; i++) {
+        cin >> eu[i] >> ev[i] >> ew[i];
+    }
+    int dist[20];
+    for (int i = 0; i < n; i++) {
+        dist[i] = 1000000000;
+    }
+    dist[0] = 0;
+    for (int pass = 1; pass < n; pass++) {
+        for (int i = 0; i < m; i++) {
+            if (dist[eu[i]] != 1000000000 && dist[eu[i]] + ew[i] < dist[ev[i]]) {
+                dist[ev[i]] = dist[eu[i]] + ew[i];
+            }
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        if (dist[eu[i]] != 1000000000 && dist[eu[i]] + ew[i] < dist[ev[i]]) {
+            cout << "Negative Cycle" << endl;
+            return 0;
+        }
+    }
+    if (dist[n - 1] == 1000000000) {
+        cout << "No Route" << endl;
+    } else {
+        cout << "Minimum Cost: " << dist[n - 1] << endl;
+    }
+    return 0;
+}
+4. Problem Statement
+Hemalatha works for a telecom company that has built phone lines between the villages of a district. There are n villages numbered from 0 to n-1, and every phone line joins two villages and works in both directions. Two villages are in the same group if they can talk to each other, directly or through other villages. A village with no phone line forms a group alone. The network is called connected if all the villages are in one group.
+Write a program that prints the number of groups of villages, the number of villages in the largest group, and whether the network is connected.
+Input Format 
+The first line of input consists of two space-separated integers n and m representing the number of villages and the number of phone lines.
+Each of the next m lines consists of two space-separated integers u and v representing a phone line between the village u and the village v.
+Output Format 
+The first line of output prints "Components: " followed by an integer representing the number of groups of villages.
+The second line of output prints "Largest Component: " followed by an integer representing the number of villages in the largest group.
+The third line of output prints "Connected: Yes" if all the villages are in one group, or "Connected: No" otherwise.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 15
+0 ≤ m ≤ min(50, n × (n − 1) / 2)
+0 ≤ u, v < n
+There are no self-loops and no repeated phone lines.
+[[IMAGE IN PARAGRAPH]]
+Solution
+#include <iostream>
+using namespace std;
+int n;
+int adj[20][20];
+bool visited[20];
+int dfs(int u) {
+    visited[u] = true;
+    int size = 1;
+    for (int v = 0; v < n; v++) {
+        if (adj[u][v] == 1 && !visited[v]) {
+            size = size + dfs(v);
+        }
+    }
+    return size;
+}
+int main() {
+    int m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        adj[u][v] = 1;
+        adj[v][u] = 1;
+    }
+    int components = 0;
+    int largest = 0;
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            int size = dfs(i);
+            components = components + 1;
+            if (size > largest) {
+                largest = size;
+            }
+        }
+    }
+    cout << "Components: " << components << endl;
+    cout << "Largest Component: " << largest << endl;
+    if (components == 1) {
+        cout << "Connected: Yes" << endl;
+    } else {
+        cout << "Connected: No" << endl;
+    }
+    return 0;
+}
+Top of Form
+Bottom of Form
+Top of Form
+Bottom of Form
+Bottom of Form
+Top of Form
+Bottom of Form

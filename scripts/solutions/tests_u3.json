@@ -1,0 +1,290 @@
+{
+ "U3_D1": [
+  [
+   "4\n3 1 4 2",
+   "Original: 3 1 4 2\nReversed: 2 4 1 3",
+   "sample"
+  ],
+  [
+   "2\n9 6",
+   "Original: 9 6\nReversed: 6 9",
+   "sample"
+  ],
+  [
+   "1\n7",
+   "Original: 7\nReversed: 7",
+   "hidden"
+  ],
+  [
+   "3\n5 10 15",
+   "Original: 5 10 15\nReversed: 15 10 5",
+   "hidden"
+  ],
+  [
+   "5\n4 8 15 16 23",
+   "Original: 4 8 15 16 23\nReversed: 23 16 15 8 4",
+   "hidden"
+  ],
+  [
+   "6\n12 7 33 2 91 40",
+   "Original: 12 7 33 2 91 40\nReversed: 40 91 2 33 7 12",
+   "hidden"
+  ]
+ ],
+ "U3_D2": [
+  [
+   "3 5\n1 8\n1 9\n1 7\n1 6\n2 0",
+   "Enqueued 8\nEnqueued 9\nEnqueued 7\nQueue Full\nDequeued 8\nQueue: 9 7",
+   "sample"
+  ],
+  [
+   "2 4\n1 4\n2 0\n1 2\n1 3",
+   "Enqueued 4\nDequeued 4\nEnqueued 2\nEnqueued 3\nQueue: 2 3",
+   "sample"
+  ],
+  [
+   "3 4\n1 10\n1 20\n2 0\n1 30",
+   "Enqueued 10\nEnqueued 20\nDequeued 10\nEnqueued 30\nQueue: 20 30",
+   "hidden"
+  ],
+  [
+   "2 3\n2 0\n1 5\n2 0",
+   "Queue Empty\nEnqueued 5\nDequeued 5\nQueue: Empty",
+   "hidden"
+  ],
+  [
+   "3 8\n1 1\n1 2\n1 3\n1 4\n2 0\n1 5\n1 6\n2 0",
+   "Enqueued 1\nEnqueued 2\nEnqueued 3\nQueue Full\nDequeued 1\nEnqueued 5\nQueue Full\nDequeued 2\nQueue: 3 5",
+   "hidden"
+  ],
+  [
+   "4 10\n1 11\n1 22\n1 33\n2 0\n2 0\n1 44\n1 55\n1 66\n1 77\n2 0",
+   "Enqueued 11\nEnqueued 22\nEnqueued 33\nDequeued 11\nDequeued 22\nEnqueued 44\nEnqueued 55\nEnqueued 66\nQueue Full\nDequeued 33\nQueue: 44 55 66",
+   "hidden"
+  ]
+ ],
+ "U3_D3": [
+  [
+   "4\n3 6 9 12\n5",
+   "Value After Steps: 6",
+   "sample"
+  ],
+  [
+   "6\n2 4 6 8 10 12\n9",
+   "Value After Steps: 8",
+   "sample"
+  ],
+  [
+   "3\n10 20 30\n0",
+   "Value After Steps: 10",
+   "hidden"
+  ],
+  [
+   "3\n7 14 21\n4",
+   "Value After Steps: 14",
+   "hidden"
+  ],
+  [
+   "4\n5 15 25 35\n6",
+   "Value After Steps: 25",
+   "hidden"
+  ],
+  [
+   "5\n11 22 33 44 55\n13",
+   "Value After Steps: 44",
+   "hidden"
+  ]
+ ],
+ "U3_D4": [
+  [
+   "234*+",
+   "Result: 14",
+   "sample"
+  ],
+  [
+   "92-3*",
+   "Result: 21",
+   "sample"
+  ],
+  [
+   "23+",
+   "Result: 5",
+   "hidden"
+  ],
+  [
+   "93-",
+   "Result: 6",
+   "hidden"
+  ],
+  [
+   "531*+9-",
+   "Result: -1",
+   "hidden"
+  ],
+  [
+   "82/34-*",
+   "Result: -4",
+   "hidden"
+  ]
+ ],
+ "U3_D5": [
+  [
+   "4\n1 2 3 4",
+   "Forward: 4 3 2 1\nBackward: 1 2 3 4",
+   "sample"
+  ],
+  [
+   "2\n15 25",
+   "Forward: 25 15\nBackward: 15 25",
+   "sample"
+  ],
+  [
+   "1\n8",
+   "Forward: 8\nBackward: 8",
+   "hidden"
+  ],
+  [
+   "3\n10 20 30",
+   "Forward: 30 20 10\nBackward: 10 20 30",
+   "hidden"
+  ],
+  [
+   "5\n7 3 9 1 5",
+   "Forward: 5 1 9 3 7\nBackward: 7 3 9 1 5",
+   "hidden"
+  ],
+  [
+   "6\n21 22 23 24 25 26",
+   "Forward: 26 25 24 23 22 21\nBackward: 21 22 23 24 25 26",
+   "hidden"
+  ]
+ ],
+ "U3_C1": [
+  [
+   "4\n15 10 20 5",
+   "Preorder: 15 10 5 20\nInorder: 5 10 15 20\nPostorder: 5 10 20 15",
+   "sample"
+  ],
+  [
+   "6\n2 4 6 8 10 12",
+   "Preorder: 2 4 8 10 6 12\nInorder: 8 4 10 2 12 6\nPostorder: 8 10 4 12 6 2",
+   "sample"
+  ],
+  [
+   "7\n1 2 3 4 5 6 7",
+   "Preorder: 1 2 4 5 3 6 7\nInorder: 4 2 5 1 6 3 7\nPostorder: 4 5 2 6 7 3 1",
+   "hidden"
+  ],
+  [
+   "1\n10",
+   "Preorder: 10\nInorder: 10\nPostorder: 10",
+   "hidden"
+  ],
+  [
+   "3\n5 3 8",
+   "Preorder: 5 3 8\nInorder: 3 5 8\nPostorder: 3 8 5",
+   "hidden"
+  ],
+  [
+   "5\n1 2 3 4 5",
+   "Preorder: 1 2 4 5 3\nInorder: 4 2 5 1 3\nPostorder: 4 5 2 3 1",
+   "hidden"
+  ]
+ ],
+ "U3_C2": [
+  [
+   "4\n12 7 3 9",
+   "Min-Heap: 3 9 7 12",
+   "sample"
+  ],
+  [
+   "5\n20 15 10 5 1",
+   "Min-Heap: 1 5 15 20 10",
+   "sample"
+  ],
+  [
+   "5\n5 3 8 1 2",
+   "Min-Heap: 1 2 8 5 3",
+   "hidden"
+  ],
+  [
+   "1\n7",
+   "Min-Heap: 7",
+   "hidden"
+  ],
+  [
+   "4\n4 3 2 1",
+   "Min-Heap: 1 2 3 4",
+   "hidden"
+  ],
+  [
+   "6\n10 20 30 40 50 60",
+   "Min-Heap: 10 20 30 40 50 60",
+   "hidden"
+  ]
+ ],
+ "U3_C3": [
+  [
+   "xy-",
+   "Infix Expression: (x-y)",
+   "sample"
+  ],
+  [
+   "pqr+-",
+   "Infix Expression: (p-(q+r))",
+   "sample"
+  ],
+  [
+   "ab+",
+   "Infix Expression: (a+b)",
+   "hidden"
+  ],
+  [
+   "ab+c*",
+   "Infix Expression: ((a+b)*c)",
+   "hidden"
+  ],
+  [
+   "abc+*",
+   "Infix Expression: (a*(b+c))",
+   "hidden"
+  ],
+  [
+   "a",
+   "Infix Expression: a",
+   "hidden"
+  ]
+ ],
+ "U3_C4": [
+  [
+   "5\n30 20 40 10 25\n25",
+   "Found at depth 2",
+   "sample"
+  ],
+  [
+   "3\n5 2 8\n9",
+   "Not Found",
+   "sample"
+  ],
+  [
+   "7\n50 30 70 20 40 60 80\n60",
+   "Found at depth 2",
+   "hidden"
+  ],
+  [
+   "1\n10\n10",
+   "Found at depth 0",
+   "hidden"
+  ],
+  [
+   "5\n40 20 60 10 30\n55",
+   "Not Found",
+   "hidden"
+  ],
+  [
+   "6\n10 20 30 40 50 60\n60",
+   "Found at depth 5",
+   "hidden"
+  ]
+ ]
+}

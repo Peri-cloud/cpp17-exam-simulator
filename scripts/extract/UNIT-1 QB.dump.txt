@@ -1,0 +1,972 @@
+UNIT-I MCQ
+Q1. What does polymorphism mean in OOP?
+Hiding the internal details of a class
+Acquiring properties of another class
+Binding data with the functions that use it
+The ability of the same interface to behave differently for different objects
+Q2. Which statement best describes procedural programming?
+A program is organized as a set of functions that operate on separate data
+A program is organized as objects that combine data and functions
+A program is written only using classes and inheritance
+A program is written without using any functions
+Q3. In a non-static member function, what does the this pointer hold?
+The address of the class definition
+The address of the object that called the function
+The address of the first data member only
+The address of the base class
+Q4. Which OOP concept allows a new class to acquire the properties of an existing class?
+Abstraction
+Encapsulation
+Inheritance
+Instantiation
+Q5. Which OOP concept binds data and the functions that operate on it into a single unit?
+Polymorphism
+Encapsulation
+Recursion
+Compilation
+Q6. What is the default access specifier for members of a class in C++?
+public
+protected
+private
+internal
+Q7. What is an object in C++?
+A blueprint that defines data members and member functions
+An instance of a class
+A header file
+A function that returns a value
+Q8. Which operator is used to define a member function outside its class?
+->
+.
+&
+::
+Q9. Which keyword is used to define a class in C++?
+class
+object
+define
+new
+Q10. Which C++ data type is used to store the values true and false?
+int
+char
+bool
+float
+Q11. What is the output of the following C++ code?
+0
+Garbage value
+8
+Compilation error
+Q12. What is the output of the following C++ code?
+6
+9
+12
+14
+Q13. What is the output of the following C++ code?
+3
+6
+12
+21
+Q14. Which is the correct declaration of a copy constructor for a class Box?
+Box(const Box &b);
+Box(Box b);
+void Box(Box &b);
+Box &Box(int b);
+Q15. What is the output of the following C++ code?
+0
+1
+2
+3
+Q16. What is the output of the following C++ code?
+AABBC
+AACBB
+ACABB
+ABABC
+Q17. What is the output of the following C++ code?
+6
+5
+1
+Compilation error
+Q18. Which symbol is used at the start of a destructor's name?
+#
+~
+&
+@
+Q19. How many copies of a static data member exist for a class, regardless of how many objects are created?
+One copy per object
+One copy per function
+One copy shared by all objects
+No copy until main() runs
+Q20. What is the return type of a constructor?
+void
+int
+The class type
+None, not even void
+Unit1_Debugging
+Problem Statement
+Isha owns a gift shop and packs gifts in boxes of three kinds. The program has a class Box with a length, a width, and a height. A box created without any details is a cube of side 1. A box created with one value is a cube whose side is that value. A box created with three values has the given length, width, and height. The function volume returns the volume of a box.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Formula used: Volume = length * width * height
+Input Format 
+The first line of input consists of four space-separated doubles side, a, b, and c. The value side represents the side of the cube, and the values a, b, and c represent the length, the width, and the height of the third box.
+Output Format 
+The first line of output prints "Default Box Volume: " followed by the volume of the box created without any details, rounded to two decimal places.
+The second line of output prints "Cube Volume: " followed by the volume of the cube created with the given side, rounded to two decimal places.
+The third line of output prints "Box Volume: " followed by the volume of the box created with the given length, width, and height, rounded to two decimal places.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1.0 ≤ side, a, b, c ≤ 100.0
+Sample Input Sample Output 
+3.0 2.0 4.0 5.0
+Default Box Volume: 1.00
+Cube Volume: 27.00
+Box Volume: 40.00
+Sample Input Sample Output 
+4.0 6.0 2.5 2.0
+Default Box Volume: 1.00
+Cube Volume: 64.00
+Box Volume: 30.00
+Answer Key & Solution:
+Input Output
+2.0 3.0 3.0 3.0
+Default Box Volume: 1.00
+Cube Volume: 8.00
+Box Volume: 27.00
+Weightage – 20 Input Output
+5.0 10.0 2.0 1.5
+Default Box Volume: 1.00
+Cube Volume: 125.00
+Box Volume: 30.00
+Weightage – 20 Input Output
+1.2 2.4 3.5 1.2
+Default Box Volume: 1.00
+Cube Volume: 1.73
+Box Volume: 10.08
+Weightage – 30 Input Output
+7.3 4.2 6.1 3.3
+Default Box Volume: 1.00
+Cube Volume: 389.02
+Box Volume: 84.55
+Weightage – 30 Sample Input Sample Output
+3.0 2.0 4.0 5.0
+Default Box Volume: 1.00
+Cube Volume: 27.00
+Box Volume: 40.00
+Sample Input Sample Output
+4.0 6.0 2.5 2.0
+Default Box Volume: 1.00
+Cube Volume: 64.00
+Box Volume: 30.00
+Solution
+Header
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Box {
+    double l, w, h;
+public:
+    Box() {
+        l = 1;
+        w = 1;
+        h = 1;
+    }
+    Box(double side) {
+        l = side;
+        w = side;
+        h = side;
+    }
+    Box(double a, double b, double c) {
+        l = a;
+        w = b;
+        h = c;
+    }
+    double volume() {
+        return l * w * h;
+    }
+};
+Footer
+int main() {
+    double side, a, b, c;
+    cin >> side >> a >> b >> c;
+    Box first;
+    Box second(side);
+    Box third(a, b, c);
+    cout << fixed << setprecision(2);
+    cout << "Default Box Volume: " << first.volume() << endl;
+    cout << "Cube Volume: " << second.volume() << endl;
+    cout << "Box Volume: " << third.volume() << endl;
+    return 0;
+}
+
+Problem Statement
+Sunita manages a digital library. The program has a class Document with a title and a number of pages. When a document is created with a title and the number of pages, the message "Created: " followed by the title is printed. When a document is created as a copy of another document, the copy gets the same number of pages, and its title is the title of the original document followed by "_copy", and the message "Copied: " followed by the new title is printed. When a document is destroyed, the message "Destroyed: " followed by its title is printed.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of a string title and an integer pages separated by a space, representing the title and the number of pages of the document.
+Output Format 
+The first line of output prints "Created: " followed by the title of the original document.
+The second line of output prints "Copied: " followed by the title of the copy.
+The third line of output prints "Title: " followed by the title, ", Pages: " followed by the number of pages of the original document.
+The fourth line of output prints "Title: " followed by the title, ", Pages: " followed by the number of pages of the copy.
+The fifth and the sixth lines of output print "Destroyed: " followed by the title of the copy, and "Destroyed: " followed by the title of the original document, because the objects are destroyed in the reverse order of their creation.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of title ≤ 20, and the title contains no spaces.
+1 ≤ pages ≤ 1000
+Sample Input Sample Output 
+Report 10
+Created: Report
+Copied: Report_copy
+Title: Report, Pages: 10
+Title: Report_copy, Pages: 10
+Destroyed: Report_copy
+Destroyed: Report
+Sample Input Sample Output 
+Notes 25
+Created: Notes
+Copied: Notes_copy
+Title: Notes, Pages: 25
+Title: Notes_copy, Pages: 25
+Destroyed: Notes_copy
+Destroyed: Notes
+Hidden Test Case Input Output
+Invoice 4
+Created: Invoice
+Copied: Invoice_copy
+Title: Invoice, Pages: 4
+Title: Invoice_copy, Pages: 4
+Destroyed: Invoice_copy
+Destroyed: Invoice
+Weightage – 20 Input Output
+Resume 2
+Created: Resume
+Copied: Resume_copy
+Title: Resume, Pages: 2
+Title: Resume_copy, Pages: 2
+Destroyed: Resume_copy
+Destroyed: Resume
+Weightage – 20 Input Output
+Syllabus 120
+Created: Syllabus
+Copied: Syllabus_copy
+Title: Syllabus, Pages: 120
+Title: Syllabus_copy, Pages: 120
+Destroyed: Syllabus_copy
+Destroyed: Syllabus
+Weightage – 30 Input Output
+Thesis 350
+Created: Thesis
+Copied: Thesis_copy
+Title: Thesis, Pages: 350
+Title: Thesis_copy, Pages: 350
+Destroyed: Thesis_copy
+Destroyed: Thesis
+Weightage – 30 Sample Input Sample Output
+Report 10
+Created: Report
+Copied: Report_copy
+Title: Report, Pages: 10
+Title: Report_copy, Pages: 10
+Destroyed: Report_copy
+Destroyed: Report
+Notes 25
+Created: Notes
+Copied: Notes_copy
+Title: Notes, Pages: 25
+Title: Notes_copy, Pages: 25
+Destroyed: Notes_copy
+Destroyed: Notes
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+class Document {
+    string title;
+    int pages;
+public:
+    Document(string t, int p) {
+        title = t;
+        pages = p;
+        cout << "Created: " << title << endl;
+    }
+    Document(Document &other) {
+        title = other.title + "_copy";
+        pages = other.pages;
+        cout << "Copied: " << title << endl;
+    }
+    void show() {
+        cout << "Title: " << title << ", Pages: " << pages << endl;
+    }
+    ~Document() {
+        cout << "Destroyed: " << title << endl;
+    }
+};
+Footer
+int main() {
+    string title;
+    int pages;
+    cin >> title >> pages;
+    Document d1(title, pages);
+    Document d2 = d1;
+    d1.show();
+    d2.show();
+    return 0;
+}
+ Problem Statement
+Mahesh works at a bank counter. The program has a class BankAccount that keeps the balance of an account. The function deposit adds the given amount to the balance. The function withdraw removes the given amount from the balance only when the amount is less than or equal to the balance, and returns the message "Withdrawal Successful". Otherwise, the balance is not changed, and the function returns the message "Insufficient Balance". The function getBalance returns the balance with its decimal part.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of three space-separated doubles initial, dep, and wd representing the opening balance, the amount to be deposited, and the amount to be withdrawn.
+Output Format 
+The first line of output prints the message returned by the withdrawal, either "Withdrawal Successful" or "Insufficient Balance".
+The second line of output prints "Balance: " followed by a double value representing the final balance rounded to two decimal places.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+0.0 ≤ initial ≤ 100000.0
+0.0 ≤ dep, wd ≤ 100000.0
+Sample Input Sample Output 
+5000.0 1000.0 2000.0
+Withdrawal Successful
+Balance: 4000.00
+Sample Input Sample Output 
+1500.5 500.0 3000.0
+Insufficient Balance
+Balance: 2000.50
+Hidden Test Case Input Output
+3000.0 500.0 1000.0
+Withdrawal Successful
+Balance: 2500.00
+Weightage – 20 Input Output
+800.0 200.0 5000.0
+Insufficient Balance
+Balance: 1000.00
+Weightage – 20 Input Output
+12345.75 1000.25 345.5
+Withdrawal Successful
+Balance: 13000.50
+Weightage – 30 Input Output
+99.5 0.5 100.0
+Withdrawal Successful
+Balance: 0.00
+Weightage – 30 Sample Input Sample Output
+5000.0 1000.0 2000.0
+Withdrawal Successful
+Balance: 4000.00
+Sample Input Sample Output
+1500.5 500.0 3000.0
+Insufficient Balance
+Balance: 2000.50
+Solution
+Header
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+class BankAccount {
+    double balance;
+public:
+    BankAccount(double b) {
+        balance = b;
+    }
+    void deposit(double amount) {
+        balance = balance + amount;
+    }
+    string withdraw(double amount) {
+        if (amount <= balance) {
+            balance = balance - amount;
+            return "Withdrawal Successful";
+        }
+        return "Insufficient Balance";
+    }
+    double getBalance() {
+        return balance;
+    }
+};
+Footer
+int main() {
+    double initial, dep, wd;
+    cin >> initial >> dep >> wd;
+    BankAccount acc(initial);
+    acc.deposit(dep);
+    cout << acc.withdraw(wd) << endl;
+    cout << fixed << setprecision(2);
+    cout << "Balance: " << acc.getBalance() << endl;
+    return 0;
+}
+Q4. Problem Statement
+Teacher Revathi adds grace marks to the marks of a student. The program has a class Student with a name and the marks. The constructor takes the name and the marks as parameters, which have the same names as the data members of the class. The member function addBonus adds the given bonus to the marks and returns the same student object, so that more than one bonus can be added one after the other in a single statement, for example s.addBonus(5).addBonus(3). 
+The member function display prints the name and the marks of the student. The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Formula used: Final marks = marks + first bonus + second bonus
+Input Format 
+The first line of input consists of a string name and three integers marks, b1, and b2 separated by spaces, representing the name of the student, the marks of the student, the first bonus, and the second bonus.
+Output Format 
+The first line of output prints "Name: " followed by the name of the student.
+The second line of output prints "Marks: " followed by an integer representing the final marks of the student.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of name ≤ 20, and the name contains no spaces.
+0 ≤ marks, b1, b2 ≤ 100
+marks + b1 + b2 ≤ 100
+Sample Input Sample Output 
+Arun 70 5 3
+Name: Arun
+Marks: 78
+Sample Input Sample Output 
+Meena 55 10 5
+Name: Meena
+Marks: 70
+Hidden Test Case Input Output
+Ravi 40 2 3
+Name: Ravi
+Marks: 45
+Weightage – 20 Input Output
+Priya 82 8 4
+Name: Priya
+Marks: 94
+Weightage – 20 Input Output
+Kiran 60 15 10
+Name: Kiran
+Marks: 85
+Weightage – 30 Input Output
+Sneha 33 7 20
+Name: Sneha
+Marks: 60
+Weightage – 30 Sample Input Sample Output
+Arun 70 5 3
+Name: Arun
+Marks: 78
+Sample Input Sample Output
+Meena 55 10 5
+Name: Meena
+Marks: 70
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+    string name;
+    int marks;
+public:
+    Student(string name, int marks) {
+        this->name = name;
+        this->marks = marks;
+    }
+    Student& addBonus(int bonus) {
+        this->marks = this->marks + bonus;
+        return *this;
+    }
+    void display() {
+        cout << "Name: " << this->name << endl;
+        cout << "Marks: " << this->marks << endl;
+    }
+};
+Footer
+int main() {
+    string name;
+    int marks, b1, b2;
+    cin >> name >> marks >> b1 >> b2;
+    Student s(name, marks);
+    s.addBonus(b1).addBonus(b2);
+    s.display();
+    return 0;
+}
+Q5. Problem Statement
+Rohan conducts an online quiz and keeps a leaderboard. The program has a class Player with a name and a score. The class also keeps two values that are shared by all the players: the highest score so far, and the name of the player who has it. 
+At the start, the highest score is 0 and the top player is "None". Whenever a player is created, the shared values are updated only if the score of the new player is strictly greater than the highest score so far, so if two players have the same highest score, the player who came first stays on the top. The static functions getHighest and getTopPlayer return the two shared values.
+The given code has errors, and it does not produce the correct output. Debug the code so that it works as described.
+Input Format 
+The first line of input consists of an integer n representing the number of players.
+The second line of input consists of n pairs of a string name and an integer score, separated by spaces, representing the name and the score of every player in the order in which they play.
+Output Format 
+The first line of output prints "Top Player: " followed by the name of the player on the top.
+The second line of output prints "Highest Score: " followed by an integer representing the highest score.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 50
+1 ≤ length of name ≤ 20, and the name contains no spaces.
+1 ≤ score ≤ 100
+Sample Input Sample Output 
+3
+Arun 70 Meena 92 Ravi 85
+Top Player: Meena
+Highest Score: 92
+Sample Input Sample Output 
+2
+Priya 60 Kiran 60
+Top Player: Priya
+Highest Score: 60
+Hidden Test Case Input Output
+4
+Divya 45 Hari 88 Isha 67 Jay 88
+Top Player: Hari
+Highest Score: 88
+Weightage – 20 Input Output
+1
+Sneha 99
+Top Player: Sneha
+Highest Score: 99
+Weightage – 20 Input Output
+5
+Latha 52 Mani 61 Nila 77 Omar 93 Pooja 80
+Top Player: Omar
+Highest Score: 93
+Weightage – 30 Input Output
+6
+Qadir 40 Rani 72 Sita 72 Tarun 55 Uma 90 Vijay 90
+Top Player: Uma
+Highest Score: 90
+Weightage - 30Sample Input Sample Output
+3
+Arun 70 Meena 92 Ravi 85
+Top Player: Meena
+Highest Score: 92
+Sample Input Sample Output
+2
+Priya 60 Kiran 60
+Top Player: Priya
+Highest Score: 60
+Solution
+Header
+#include <iostream>
+#include <string>
+using namespace std;
+class Player {
+    string name;
+    int score;
+    static int highest;
+    static string topPlayer;
+public:
+    Player(string n, int s) {
+        name = n;
+        score = s;
+        if (score > highest) {
+            highest = score;
+            topPlayer = name;
+        }
+    }
+    static int getHighest() {
+        return highest;
+    }
+    static string getTopPlayer() {
+        return topPlayer;
+    }
+};
+int Player::highest = 0;
+string Player::topPlayer = "None";
+Footer
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string name;
+        int score;
+        cin >> name >> score;
+        Player p(name, score);
+    }
+    cout << "Top Player: " << Player::getTopPlayer() << endl;
+    cout << "Highest Score: " << Player::getHighest() << endl;
+    return 0;
+}
+Unit1_Coding
+Q1. Problem Statement
+Dinesh is a mathematics teacher who prepares number puzzles for his students. A prime number is a number greater than 1 that has no divisors other than 1 and itself. For two given numbers, he wants to know how many prime numbers lie between them, including both the numbers, and which is the largest of those prime numbers.
+Write a program in the procedural style, using a separate function to check whether a number is prime, and print the count of the prime numbers and the largest prime number in the range. If there is no prime number in the range, print "None" for the largest prime number.
+Input Format 
+The first line of input consists of two space-separated integers a and b representing the first number and the last number of the range.
+Output Format 
+The first line of output prints "Prime Count: " followed by an integer representing the number of prime numbers from a to b, including both a and b.
+The second line of output prints "Largest Prime: " followed by an integer representing the largest prime number in the range, or the string "None" if the range has no prime number.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ a ≤ b ≤ 10000
+Sample Input Sample Output 
+10 30
+Prime Count: 6
+Largest Prime: 29
+Sample Input Sample Output 
+1 10
+Prime Count: 4
+Largest Prime: 7
+Hidden Test Case Input Output
+20 22
+Prime Count: 0
+Largest Prime: None
+Weightage – 20 Input Output
+50 60
+Prime Count: 2
+Largest Prime: 59
+Weightage – 20 Input Output
+100 150
+Prime Count: 10
+Largest Prime: 149
+Weightage – 30 Input Output
+500 600
+Prime Count: 14
+Largest Prime: 599
+Weightage - 30Sample Input Sample Output
+10 30
+Prime Count: 6
+Largest Prime: 29
+Sample Input Sample Output
+1 10
+Prime Count: 4
+Largest Prime: 7
+Solution
+#include <iostream>
+using namespace std;
+bool isPrime(int x) {
+    if (x < 2) {
+        return false;
+    }
+    for (int i = 2; i * i <= x; i++) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+int main() {
+    int a, b;
+    cin >> a >> b;
+    int count = 0;
+    int largest = 0;
+    for (int i = a; i <= b; i++) {
+        if (isPrime(i)) {
+            count = count + 1;
+            largest = i;
+        }
+    }
+    cout << "Prime Count: " << count << endl;
+    if (count == 0) {
+        cout << "Largest Prime: None" << endl;
+    } else {
+        cout << "Largest Prime: " << largest << endl;
+    }
+    return 0;
+}
+Q2. Problem Statement
+Ganesh works at a weather station that records the temperature several times a day. The readings must be kept private inside a log object, and they can be added and analysed only through the member functions of the log.
+Write a program that defines a class TemperatureLog with a private array of readings and a count of the readings, and with public member functions to add a reading, to get the highest reading, to get the lowest reading, and to get the average of the readings. Read the temperatures of a day, add them to the log one by one, and print the highest, the lowest, and the average temperature.
+Formula used: Average = Sum of all readings / Number of readings
+Input Format 
+The first line of input consists of an integer n representing the number of readings.
+The second line of input consists of n space-separated doubles representing the temperatures in degrees Celsius.
+Output Format 
+The first line of output prints "Highest: " followed by a double value representing the highest temperature rounded to two decimal places.
+The second line of output prints "Lowest: " followed by a double value representing the lowest temperature rounded to two decimal places.
+The third line of output prints "Average: " followed by a double value representing the average temperature rounded to two decimal places.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ n ≤ 10
+-50.0 ≤ temperature ≤ 60.0
+Sample Input Sample Output 
+5
+22.5 24.0 19.5 26.5 23.0
+Highest: 26.50
+Lowest: 19.50
+Average: 23.10
+Sample Input Sample Output 
+3
+30.0 28.5 31.5
+Highest: 31.50
+Lowest: 28.50
+Average: 30.00
+Hidden Test CaseInputOutput
+1
+25.0
+Highest: 25.00
+Lowest: 25.00
+Average: 25.00
+Weightage - 20InputOutput
+4
+18.0 21.0 19.0 22.0
+Highest: 22.00
+Lowest: 18.00
+Average: 20.00
+Weightage - 20InputOutput
+7
+12.5 15.0 9.5 18.0 11.0 14.5 16.0
+Highest: 18.00
+Lowest: 9.50
+Average: 13.79
+Weightage - 30InputOutput
+10
+-5.0 -2.5 0.0 3.5 7.0 -8.0 1.5 4.0 2.0 -1.0
+Highest: 7.00
+Lowest: -8.00
+Average: 0.15
+Weightage - 30Sample InputSample Output
+5
+22.5 24.0 19.5 26.5 23.0
+Highest: 26.50
+Lowest: 19.50
+Average: 23.10
+Sample InputSample Output
+3
+30.0 28.5 31.5
+Highest: 31.50
+Lowest: 28.50
+Average: 30.00
+Solution
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class TemperatureLog {
+    double readings[10];
+    int count;
+public:
+    TemperatureLog() {
+        count = 0;
+    }
+    void addReading(double t) {
+        readings[count] = t;
+        count = count + 1;
+    }
+    double getHighest() {
+        double best = readings[0];
+        for (int i = 1; i < count; i++) {
+            if (readings[i] > best) {
+                best = readings[i];
+            }
+        }
+        return best;
+    }
+    double getLowest() {
+        double least = readings[0];
+        for (int i = 1; i < count; i++) {
+            if (readings[i] < least) {
+                least = readings[i];
+            }
+        }
+        return least;
+    }
+    double getAverage() {
+        double sum = 0;
+        for (int i = 0; i < count; i++) {
+            sum = sum + readings[i];
+        }
+        return sum / count;
+    }
+};
+int main() {
+    int n;
+    cin >> n;
+    TemperatureLog log;
+    for (int i = 0; i < n; i++) {
+        double t;
+        cin >> t;
+        log.addReading(t);
+    }
+    cout << fixed << setprecision(2);
+    cout << "Highest: " << log.getHighest() << endl;
+    cout << "Lowest: " << log.getLowest() << endl;
+    cout << "Average: " << log.getAverage() << endl;
+    return 0;
+}
+Q3. Problem Statement
+Pooja is a chef who uses a countdown timer for every dish she cooks. A timer has a label, which is the name of the dish, and a number of seconds. When a timer is created, the message "Timer Created: " followed by the label is printed. 
+When the timer is started, it counts down from the number of seconds to 1, printing every number on a separate line, and then prints "Time Up". When the timer is destroyed at the end of the program, the message "Timer Destroyed: " followed by the label is printed.
+Write a program that defines a class Timer with a parameterized constructor, a function to start the countdown, and a destructor. The parameters of the constructor have the same names as the data members of the class, so the this pointer must be used. Read the label and the number of seconds, create the timer, and start it.
+Input Format 
+The first line of input consists of a string label and an integer seconds separated by a space, representing the name of the dish and the number of seconds of the countdown.
+Output Format 
+The first line of output prints "Timer Created: " followed by the label.
+The next lines of output print the numbers from seconds down to 1, one number on each line.
+The next line of output prints "Time Up".
+The last line of output prints "Timer Destroyed: " followed by the label.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1 ≤ length of label ≤ 20, and the label contains no spaces.
+1 ≤ seconds ≤ 20
+Sample Input Sample Output 
+Tea 3
+Timer Created: Tea
+3
+2
+1
+Time Up
+Timer Destroyed: Tea
+Sample Input Sample Output 
+Pasta 5
+Timer Created: Pasta
+5
+4
+3
+Hidden Test Case Input Output
+Egg 1
+Timer Created: Egg
+1
+Time Up
+Timer Destroyed: Egg
+Weightage – 20 Input Output
+Coffee 4
+Timer Created: Coffee
+4
+3
+2
+1
+Time Up
+Timer Destroyed: Coffee
+Weightage – 20 Input Output
+Noodles 8
+Timer Created: Noodles
+8
+7
+6
+5
+4
+3
+2
+1
+Time Up
+Timer Destroyed: Noodles
+Weightage – 30 Input Output
+Bread 10
+Timer Created: Bread
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Time Up
+Timer Destroyed: Bread
+Weightage – 30 Sample Input Sample Output
+Tea 3
+Timer Created: Tea
+3
+2
+1
+Time Up
+Timer Destroyed: Tea
+Sample Input Sample Output
+Pasta 5
+Timer Created: Pasta
+5
+4
+3
+2
+1
+Time Up
+Timer Destroyed: Pasta
+Solution
+#include <iostream>
+#include <string>
+using namespace std;
+class Timer {
+    string label;
+    int seconds;
+public:
+    Timer(string label, int seconds) {
+        this->label = label;
+        this->seconds = seconds;
+        cout << "Timer Created: " << label << endl;
+    }
+    void start() {
+        for (int i = seconds; i >= 1; i--) {
+            cout << i << endl;
+        }
+        cout << "Time Up" << endl;
+    }
+    ~Timer() {
+        cout << "Timer Destroyed: " << label << endl;
+    }
+};
+int main() {
+    string label;
+    int seconds;
+    cin >> label >> seconds;
+    Timer t(label, seconds);
+    t.start();
+    return 0;
+}
+Q4. Problem Statement
+Vimala is designing a wall calendar and has to print the number of days in a given month of a given year. For this, she needs to know whether the year is a leap year. A year is a leap year if it is divisible by 400, or if it is divisible by 4 but not divisible by 100. 
+In a leap year, February has 29 days, and in other years February has 28 days. The months April, June, September, and November have 30 days, and all the other months have 31 days.
+Write a program that reads a year and a month number, and prints whether the year is a leap year and the number of days in the given month.
+Input Format 
+The first line of input consists of two space-separated integers year and month representing the year and the month number, where 1 is January and 12 is December.
+Output Format 
+The first line of output prints "Leap Year: Yes" if the year is a leap year, or "Leap Year: No" otherwise. The second line of output prints "Days: " followed by an integer representing the number of days in the given month of the given year.
+Refer to the sample output for the formatting specifications.
+Constraints 
+In this scenario, the test cases fall under the following constraints:
+1000 ≤ year ≤ 9999
+1 ≤ month ≤ 12
+Sample Input Sample Output 
+2024 2
+Leap Year: Yes
+Days: 29
+Sample Input Sample Output 
+2023 2
+Leap Year: No
+Days: 28
+Hidden Test Case Input Output
+2023 7
+Leap Year: No
+Days: 31
+Weightage – 20 Input Output
+2022 11
+Leap Year: No
+Days: 30
+Weightage – 20 Input Output
+1900 2
+Leap Year: No
+Days: 28
+Weightage – 30 Input Output
+2000 2
+Leap Year: Yes
+Days: 29
+Weightage – 30 Sample Input Sample Output
+2024 2
+Leap Year: Yes
+Days: 29
+Sample Input Sample Output
+2023 2
+Leap Year: No
+Days: 28
+Solution
+#include <iostream>
+using namespace std;
+int main() {
+    int year, month;
+    cin >> year >> month;
+    bool leap = false;
+    if (year % 400 == 0) {
+        leap = true;
+    } else if (year % 100 == 0) {
+        leap = false;
+    } else if (year % 4 == 0) {
+        leap = true;
+    }
+    int days;
+    if (month == 2) {
+        if (leap) {
+            days = 29;
+        } else {
+            days = 28;
+        }
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+    } else {
+        days = 31;
+    }
+    if (leap) {
+        cout << "Leap Year: Yes" << endl;
+    } else {
+        cout << "Leap Year: No" << endl;
+    }
+    cout << "Days: " << days << endl;
+    return 0;
+}
